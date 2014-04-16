@@ -12,11 +12,11 @@ abstract class Property {
     int monopoly;
 
     public int getRent(Property _property) {
-    	return _property.rent();
+      return _property.rent();
     }
 
     public int getPosition () {
-    	return position();
+      return position();
     }
 
     protected abstract int rent();
@@ -32,163 +32,451 @@ abstract class Property {
 }
 
 class Mediterranean extends Property {
-	int price = 60;
-	int position = 1;
+  int price = 60;
+  int position = 1;
 
-	@Override
-	protected int rent() {
-		int rent = 2;
-		if (hotel == 1) {
-			rent = 250;
-		}
-		else if (houses == 1) {
-			rent = 10;
-		}
-		else if (houses == 2) {
-			rent = 30;
-		}
-		else if (houses == 3) {
-			rent = 90;
-		}
-		else if (houses == 4) {
-			rent = 160;
-		}
-		else if (monopoly == 1) {
-			rent *= 2;
-		}
-		return rent;
-	}
-	
-	@Override
-	protected int position() {
-		return position;
-	}
+  @Override
+  protected int rent() {
 
-	@Override
-	protected void buy(Player _buyer) {
-		owner = _buyer;
-		_buyer.money -= price;
-	}
+    if (mortgaged) {
+      return 0;
+    }
 
-	@Override
-	protected void trade(Player _buyer, Player _seller) {
-		owner = _seller;
-		_buyer.money -= price;
-		_seller.money += price;
-	}
+    int rent = 2;
 
-	@Override
-	protected void mortgage() {
-		mortgaged = 1;
-	}
+    if (hotel == 1) {
+      rent = 250;
+    }
+    else if (houses == 1) {
+      rent = 10;
+    }
+    else if (houses == 2) {
+      rent = 30;
+    }
+    else if (houses == 3) {
+      rent = 90;
+    }
+    else if (houses == 4) {
+      rent = 160;
+    }
+    else if (monopoly == 1) {
+      rent *= 2;
+    }
 
-	@Override
-	protected void unMortgage() {
-		mortgaged = 0;
-	}
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
 
-	@Override
-	protected void buildHouse(int _amount) {
-		houses += _amount;
-		owner.money -= _amount * 50;
-	}
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+  }
 
-	@Override
-	protected void buildHotel() {
-		hotel = 1;
-		owner.money -= (5 - houses) * 50;
-	}
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+  }
 
-	@Override
-	protected void sellHouse(int _amount) {
-		houses -= _amount;
-		owner.money -= _amount * 50;
-	}
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
 
-	@Override
-	protected void sellHotel() {
-		hotel = 0;
-		owner.money += 250;
-	}
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+
+  @Override
+  protected void buildHouse(int _amount) {
+    houses += _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void buildHotel() {
+    hotel = 1;
+    owner.money -= (5 - houses) * 50;
+  }
+
+  @Override
+  protected void sellHouse(int _amount) {
+    houses -= _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void sellHotel() {
+    hotel = 0;
+    owner.money += 250;
+  }
 }
 
 class Baltic extends Property {
-	int price = 60;
-	int position = 1;
+  int price = 60;
+  int position = 3;
 
-	@Override
-	protected int rent() {
-		int rent = 2;
-		if (hotel == 1) {
-			rent = 250;
-		}
-		else if (houses == 1) {
-			rent = 10;
-		}
-		else if (houses == 2) {
-			rent = 30;
-		}
-		else if (houses == 3) {
-			rent = 90;
-		}
-		else if (houses == 4) {
-			rent = 160;
-		}
-		else if (monopoly == 1) {
-			rent *= 2;
-		}
-		return rent;
-	}
-	
-	@Override
-	protected int position() {
-		return position;
-	}
+  @Override
+  protected int rent() {
 
-	@Override
-	protected void buy(Player _buyer) {
-		owner = _buyer;
-		_buyer.money -= price;
-	}
+    if (mortgaged) {
+      return 0;
+    }
 
-	@Override
-	protected void trade(Player _buyer, Player _seller) {
-		owner = _seller;
-		_buyer.money -= price;
-		_seller.money += price;
-	}
+    int rent = 4;
 
-	@Override
-	protected void mortgage() {
-		mortgaged = 1;
-	}
+    if (hotel == 1) {
+      rent = 450;
+    }
+    else if (houses == 1) {
+      rent = 20;
+    }
+    else if (houses == 2) {
+      rent = 60;
+    }
+    else if (houses == 3) {
+      rent = 180;
+    }
+    else if (houses == 4) {
+      rent = 320;
+    }
+    else if (monopoly == 1) {
+      rent *= 2;
+    }
 
-	@Override
-	protected void unMortgage() {
-		mortgaged = 0;
-	}
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
 
-	@Override
-	protected void buildHouse(int _amount) {
-		houses += _amount;
-		owner.money -= _amount * 50;
-	}
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+  }
 
-	@Override
-	protected void buildHotel() {
-		hotel = 1;
-		owner.money -= (5 - houses) * 50;
-	}
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+  }
 
-	@Override
-	protected void sellHouse(int _amount) {
-		houses -= _amount;
-		owner.money -= _amount * 50;
-	}
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
 
-	@Override
-	protected void sellHotel() {
-		hotel = 0;
-		owner.money += 250;
-	}
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+
+  @Override
+  protected void buildHouse(int _amount) {
+    houses += _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void buildHotel() {
+    hotel = 1;
+    owner.money -= (5 - houses) * 50;
+  }
+
+  @Override
+  protected void sellHouse(int _amount) {
+    houses -= _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void sellHotel() {
+    hotel = 0;
+    owner.money += 250;
+  }
+}
+
+class Oriental extends Property {
+  int price = 100;
+  int position = 6;
+
+  @Override
+  protected int rent() {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 6;
+
+    if (hotel == 1) {
+      rent = 550;
+    }
+    else if (houses == 1) {
+      rent = 30;
+    }
+    else if (houses == 2) {
+      rent = 90;
+    }
+    else if (houses == 3) {
+      rent = 270;
+    }
+    else if (houses == 4) {
+      rent = 400;
+    }
+    else if (monopoly == 1) {
+      rent *= 2;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+
+  @Override
+  protected void buildHouse(int _amount) {
+    houses += _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void buildHotel() {
+    hotel = 1;
+    owner.money -= (5 - houses) * 50;
+  }
+
+  @Override
+  protected void sellHouse(int _amount) {
+    houses -= _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void sellHotel() {
+    hotel = 0;
+    owner.money += 250;
+  }
+}
+
+class Vermont extends Property {
+  int price = 100;
+  int position = 8;
+
+  @Override
+  protected int rent() {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 6;
+
+    if (hotel == 1) {
+      rent = 550;
+    }
+    else if (houses == 1) {
+      rent = 30;
+    }
+    else if (houses == 2) {
+      rent = 90;
+    }
+    else if (houses == 3) {
+      rent = 270;
+    }
+    else if (houses == 4) {
+      rent = 400;
+    }
+    else if (monopoly == 1) {
+      rent *= 2;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+
+  @Override
+  protected void buildHouse(int _amount) {
+    houses += _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void buildHotel() {
+    hotel = 1;
+    owner.money -= (5 - houses) * 50;
+  }
+
+  @Override
+  protected void sellHouse(int _amount) {
+    houses -= _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void sellHotel() {
+    hotel = 0;
+    owner.money += 250;
+  }
+}
+
+class Connecticut extends Property {
+  int price = 120;
+  int position = 9;
+
+  @Override
+  protected int rent() {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 8;
+
+    if (hotel == 1) {
+      rent = 600;
+    }
+    else if (houses == 1) {
+      rent = 40;
+    }
+    else if (houses == 2) {
+      rent = 100;
+    }
+    else if (houses == 3) {
+      rent = 300;
+    }
+    else if (houses == 4) {
+      rent = 4500;
+    }
+    else if (monopoly == 1) {
+      rent *= 2;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+
+  @Override
+  protected void buildHouse(int _amount) {
+    houses += _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void buildHotel() {
+    hotel = 1;
+    owner.money -= (5 - houses) * 50;
+  }
+
+  @Override
+  protected void sellHouse(int _amount) {
+    houses -= _amount;
+    owner.money -= _amount * 50;
+  }
+
+  @Override
+  protected void sellHotel() {
+    hotel = 0;
+    owner.money += 250;
+  }
 }
