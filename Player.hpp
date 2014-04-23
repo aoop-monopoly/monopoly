@@ -6,6 +6,7 @@ using namespace std;
 class Player
 {
 public:
+    Player(void);
 	Player(string player_name);
 	~Player(void);
 

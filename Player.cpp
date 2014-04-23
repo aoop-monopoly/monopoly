@@ -1,5 +1,9 @@
 #include "Player.hpp"
 
+Player::Player()
+{
+}
+
 Player::Player(string player_name)
     :m_name(player_name),
     m_money(1000),

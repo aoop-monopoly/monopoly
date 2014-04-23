@@ -12,15 +12,15 @@ MonopolyBoard::MonopolyBoard(void)
     : m_num_of_players(0)
 {
     m_board_squares[0] = new Square(SquareType::go);
-    m_board_squares[1] = new Square(SquareType::property, "Mediterrranean Avenue");
+    m_board_squares[1] = new Square(SquareType::property, "Old Kent Road");
     m_board_squares[2] = new Square(SquareType::community_chest);
-    m_board_squares[3] = new Square(SquareType::property, "Baltic Avenue");
+    m_board_squares[3] = new Square(SquareType::property, "Whitechapel Road");
     m_board_squares[4] = new Square(SquareType::tax);
-    m_board_squares[5] = new Square(SquareType::station,  "Reading Railroad");
-    m_board_squares[6] = new Square(SquareType::property, "Oriental Avenue");
+    m_board_squares[5] = new Square(SquareType::station,  "King's Cross Station");
+    m_board_squares[6] = new Square(SquareType::property, "The Angel Islington");
     m_board_squares[7] = new Square(SquareType::chance);
-    m_board_squares[8] = new Square(SquareType::property, "Vermont Avenue");
-    m_board_squares[9] = new Square(SquareType::property, "Connecticut Avenue");
+    m_board_squares[8] = new Square(SquareType::property, "Euston Road");
+    m_board_squares[9] = new Square(SquareType::property, "Pentonville Road");
     m_board_squares[10] = new Square(SquareType::jail);
     m_board_squares[11] = new Square(SquareType::property, "Pall Mall");
     m_board_squares[12] = new Square(SquareType::utilities, "Electric Company");
