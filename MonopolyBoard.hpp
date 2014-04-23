@@ -1,6 +1,6 @@
 #include "Square.hpp"
 
-#define NUMBER_OF_SQUARES   20
+#define NUMBER_OF_SQUARES   40
 
 class MonopolyBoard
 {
@@ -9,9 +9,9 @@ public:
 	~MonopolyBoard(void);
 
     void setNumOfPlayers(int players);
-    void addSquare(int position, Square board_square);
+    void buildBoard(void);
 
 private:
     int m_num_of_players;
-    Square m_board_squares[NUMBER_OF_SQUARES];
+    Square *m_board_squares[NUMBER_OF_SQUARES];
 };
