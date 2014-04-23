@@ -1,10 +1,10 @@
 #include "Player.hpp"
 
 Player::Player(string player_name)
-    :name(player_name),
-    money(1000),
-    position(0),
-    in_jail(false)
+    :m_name(player_name),
+    m_money(1000),
+    m_position(0),
+    m_in_jail(false)
     
 {
 }
@@ -12,3 +12,17 @@ Player::Player(string player_name)
 Player::~Player(void)
 {
 }
+
+void
+Player::spend(int money)
+{
+    m_money -= money;
+}
+
+void
+Player::earn(int money)
+{
+    m_money += money;
+}
+
+
