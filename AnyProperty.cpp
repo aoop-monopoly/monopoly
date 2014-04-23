@@ -1,6 +1,8 @@
 #include "AnyProperty.hpp"
 
 AnyProperty::AnyProperty()
+    :m_owned_all_colors(false),
+    m_mortgaged(false)
 {
 }
 
@@ -12,120 +14,388 @@ AnyProperty::~AnyProperty(void)
 int
 AnyProperty::getPosition()
 {
-    return position;
+    return m_position;
 }
 
 void
 AnyProperty::buy(Player buyer)
 {
-    owner = buyer;
-    buyer.spend(price);
+    m_owner = buyer;
+    buyer.spend(m_price);
 }
 
 void 
 AnyProperty::trade(Player buyer, Player seller)
 {
-    owner = buyer;
-    buyer.spend(price);
-    seller.earn(price);
+    m_owner = buyer;
+    buyer.spend(m_price);
+    seller.earn(m_price);
 }
 
 void
 AnyProperty::mortgage()
 {
-    mortgaged = true;
-    owner.earn(price/2);
+    m_mortgaged = true;
+    m_owner.earn(m_price/2);
 }
 
 void
 AnyProperty::unMortgage()
 {
-    mortgaged = false;
-    owner.spend(price/2);
+    m_mortgaged = false;
+    m_owner.spend(m_price/2);
 }
 
 //OldKentRoad
 OldKentRoad::OldKentRoad()
 {
-    position = 1;
-    price = 60;
+    m_position = 1;
+    m_price = 60;
 }
 
 OldKentRoad::~OldKentRoad(void)
 {
 }
 
+int
+OldKentRoad::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 2;
+
+    if (m_hotel == 1) 
+    {
+        rent = 250;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 10;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 30;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 90;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 160;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
+
 //WhitechapelRoad
 WhitechapelRoad::WhitechapelRoad()
 {
-    position = 3;
-    price = 60;
+    m_position = 3;
+    m_price = 60;
 }
 
 WhitechapelRoad::~WhitechapelRoad(void)
 {
 }
 
+int
+WhitechapelRoad::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 4;
+
+    if (m_hotel == 1) 
+    {
+        rent = 450;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 20;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 60;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 180;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 360;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //TheAngelIslington
 TheAngelIslington::TheAngelIslington()
 {
-    position = 6;
-    price = 100;
+    m_position = 6;
+    m_price = 100;
 }
 
 TheAngelIslington::~TheAngelIslington(void)
 {
 }
 
+int
+TheAngelIslington::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 6;
+
+    if (m_hotel == 1) 
+    {
+        rent = 550;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 30;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 90;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 270;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 400;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
+
 //EustonRoad
 EustonRoad::EustonRoad()
 {
-    position = 8;
-    price = 100;
+    m_position = 8;
+    m_price = 100;
 }
 
 EustonRoad::~EustonRoad(void)
 {
 }
 
+int
+EustonRoad::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 6;
+
+    if (m_hotel == 1) 
+    {
+        rent = 550;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 30;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 90;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 270;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 400;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //PentonvilleRoad
 PentonvilleRoad::PentonvilleRoad()
 {
-    position = 9;
-    price = 120;
+    m_position = 9;
+    m_price = 120;
 }
 
 PentonvilleRoad::~PentonvilleRoad(void)
 {
 }
 
+int
+PentonvilleRoad::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 8;
+
+    if (m_hotel == 1) 
+    {
+        rent = 600;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 40;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 100;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 300;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 450;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //PallMall
 PallMall::PallMall()
 {
-    position = 11;
-    price = 140;
+    m_position = 11;
+    m_price = 140;
 }
 
 PallMall::~PallMall()
 {
 }
 
+int
+PallMall::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 10;
+
+    if (m_hotel == 1) 
+    {
+        rent = 750;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 50;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 150;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 450;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 625;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //Whitehall
 Whitehall::Whitehall()
 {
-    position = 13;
-    price = 140;
+    m_position = 13;
+    m_price = 140;
 }
 
 Whitehall::~Whitehall()
 {
 }
 
+int
+Whitehall::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 10;
+
+    if (m_hotel == 1) 
+    {
+        rent = 750;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 50;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 150;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 450;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 625;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //NorthumberlandAvenue
 NorthumberlandAvenue::NorthumberlandAvenue()
 {
-    position = 14;
-    price = 160;
+    m_position = 14;
+    m_price = 160;
 }
 
 NorthumberlandAvenue::~NorthumberlandAvenue()
@@ -135,8 +405,8 @@ NorthumberlandAvenue::~NorthumberlandAvenue()
 //BowStreet
 BowStreet::BowStreet()
 {
-    position = 16;
-    price = 180;
+    m_position = 16;
+    m_price = 180;
 }
 
 BowStreet::~BowStreet()
@@ -146,8 +416,8 @@ BowStreet::~BowStreet()
 //MarlboroughStreet
 MarlboroughStreet::MarlboroughStreet()
 {
-    position = 18;
-    price = 180;
+    m_position = 18;
+    m_price = 180;
 }
 
 MarlboroughStreet::~MarlboroughStreet()
@@ -157,8 +427,8 @@ MarlboroughStreet::~MarlboroughStreet()
 //VineStreet
 VineStreet::VineStreet()
 {
-    position = 19;
-    price = 200;
+    m_position = 19;
+    m_price = 200;
 }
 
 VineStreet::~VineStreet()
@@ -168,8 +438,8 @@ VineStreet::~VineStreet()
 //Strand
 Strand::Strand()
 {
-    position = 21;
-    price = 220;
+    m_position = 21;
+    m_price = 220;
 }
 
 Strand::~Strand()
@@ -179,8 +449,8 @@ Strand::~Strand()
 //FleetStreet
 FleetStreet::FleetStreet()
 {
-    position = 23;
-    price = 220;
+    m_position = 23;
+    m_price = 220;
 }
 
 FleetStreet::~FleetStreet()
@@ -190,8 +460,8 @@ FleetStreet::~FleetStreet()
 //TrafalgarSquare
 TrafalgarSquare::TrafalgarSquare()
 {
-    position = 24;
-    price = 240;
+    m_position = 24;
+    m_price = 240;
 }
 
 TrafalgarSquare::~TrafalgarSquare()
@@ -201,8 +471,8 @@ TrafalgarSquare::~TrafalgarSquare()
 //LeicesterSquare
 LeicesterSquare::LeicesterSquare()
 {
-    position = 26;
-    price = 260;
+    m_position = 26;
+    m_price = 260;
 }
 
 LeicesterSquare::~LeicesterSquare()
@@ -212,8 +482,8 @@ LeicesterSquare::~LeicesterSquare()
 //CoventryStreet
 CoventryStreet::CoventryStreet()
 {
-    position = 27;
-    price = 260;
+    m_position = 27;
+    m_price = 260;
 }
 
 CoventryStreet::~CoventryStreet()
@@ -223,8 +493,8 @@ CoventryStreet::~CoventryStreet()
 //Piccadilly
 Piccadilly::Piccadilly()
 {
-    position = 29;
-    price = 280;
+    m_position = 29;
+    m_price = 280;
 }
 
 Piccadilly::~Piccadilly()
@@ -234,8 +504,8 @@ Piccadilly::~Piccadilly()
 //RegentStreet
 RegentStreet::RegentStreet()
 {
-    position = 31;
-    price = 300;
+    m_position = 31;
+    m_price = 300;
 }
 
 RegentStreet::~RegentStreet()
@@ -245,8 +515,8 @@ RegentStreet::~RegentStreet()
 //OxfordStreet
 OxfordStreet::OxfordStreet()
 {
-    position = 32;
-    price = 300;
+    m_position = 32;
+    m_price = 300;
 }
 
 OxfordStreet::~OxfordStreet()
@@ -256,8 +526,8 @@ OxfordStreet::~OxfordStreet()
 //BondStreet
 BondStreet::BondStreet()
 {
-    position = 34;
-    price = 320;
+    m_position = 34;
+    m_price = 320;
 }
 
 BondStreet::~BondStreet()
@@ -267,8 +537,8 @@ BondStreet::~BondStreet()
 //ParkLane
 ParkLane::ParkLane()
 {
-    position = 37;
-    price = 350;
+    m_position = 37;
+    m_price = 350;
 }
 
 ParkLane::~ParkLane()
@@ -278,8 +548,8 @@ ParkLane::~ParkLane()
 //Mayfair
 Mayfair::Mayfair()
 {
-    position = 39;
-    price = 400;
+    m_position = 39;
+    m_price = 400;
 }
 
 Mayfair::~Mayfair()

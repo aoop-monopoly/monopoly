@@ -20,63 +20,84 @@ public:
     virtual void sellHotel() = 0;
 
 protected:
-    Player owner;
-    bool mortgaged;
-    int houses;
-    int hotel;
-    int monopoly;
-    int position;
-    int price;
+    Player m_owner;
+    bool m_mortgaged;
+    bool m_owned_all_colors;
+    int m_houses;
+    int m_hotel;
+    int m_position;
+    int m_price;
 };
 
 
 //OldKentRoad
 class OldKentRoad : public AnyProperty
 {
+public:
     OldKentRoad();
     ~OldKentRoad();
+
+    int rent();
 };
 
 //WhitechapelRoad
 class WhitechapelRoad : public AnyProperty
 {
+public:
     WhitechapelRoad();
     ~WhitechapelRoad();
+
+    int rent();
 };
 
 //TheAngelIslington
 class TheAngelIslington : public AnyProperty
 {
+public:
     TheAngelIslington();
     ~TheAngelIslington();
+
+    int rent();
 };
 
 //EustonRoad
 class EustonRoad : public AnyProperty
 {
+public:
     EustonRoad();
     ~EustonRoad();
+
+    int rent();
 };
 
 //PentonvilleRoad
 class PentonvilleRoad : public AnyProperty
 {
+public:
     PentonvilleRoad();
     ~PentonvilleRoad();
+
+    int rent();
 };
 
 //PallMall
 class PallMall : public AnyProperty
 {
+public:
     PallMall();
     ~PallMall();
+
+    int rent();
 };
 
 //Whitehall
 class Whitehall : public AnyProperty
 {
+public:
     Whitehall();
     ~Whitehall();
+
+    int rent();
 };
 
 //NorthumberlandAvenue
