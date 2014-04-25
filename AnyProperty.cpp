@@ -1,5 +1,9 @@
 #include "AnyProperty.hpp"
 
+#include <iostream>
+
+using  namespace std;
+
 AnyProperty::AnyProperty()
     :m_owned_all_colors(false),
     m_mortgaged(false),
@@ -96,6 +100,7 @@ OldKentRoad::~OldKentRoad(void)
 int
 OldKentRoad::rent()
 {
+    cout << "OldKentRoad::rent...\n";
     if (m_mortgaged)
     {
         return 0;
