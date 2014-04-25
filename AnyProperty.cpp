@@ -402,6 +402,44 @@ NorthumberlandAvenue::~NorthumberlandAvenue()
 {
 }
 
+int
+NorthumberlandAvenue::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 12;
+
+    if (m_hotel == 1) 
+    {
+        rent = 900;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 60;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 180;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 500;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 700;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //BowStreet
 BowStreet::BowStreet()
 {
@@ -411,6 +449,44 @@ BowStreet::BowStreet()
 
 BowStreet::~BowStreet()
 {
+}
+
+int
+BowStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 14;
+
+    if (m_hotel == 1) 
+    {
+        rent = 950;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 70;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 200;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 550;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 750;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
 }
 
 //MarlboroughStreet
@@ -424,6 +500,44 @@ MarlboroughStreet::~MarlboroughStreet()
 {
 }
 
+int
+MarlboroughStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 14;
+
+    if (m_hotel == 1) 
+    {
+        rent = 950;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 70;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 200;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 550;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 750;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //VineStreet
 VineStreet::VineStreet()
 {
@@ -433,6 +547,44 @@ VineStreet::VineStreet()
 
 VineStreet::~VineStreet()
 {
+}
+
+int
+VineStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 16;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1000;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 80;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 220;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 600;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 800;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
 }
 
 //Strand
@@ -446,6 +598,44 @@ Strand::~Strand()
 {
 }
 
+int
+Strand::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 18;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1050;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 90;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 250;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 700;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 875;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //FleetStreet
 FleetStreet::FleetStreet()
 {
@@ -455,6 +645,44 @@ FleetStreet::FleetStreet()
 
 FleetStreet::~FleetStreet()
 {
+}
+
+int
+FleetStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 18;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1050;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 90;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 250;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 700;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 875;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
 }
 
 //TrafalgarSquare
@@ -468,6 +696,44 @@ TrafalgarSquare::~TrafalgarSquare()
 {
 }
 
+int
+TrafalgarSquare::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 20;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1100;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 100;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 300;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 750;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 925;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //LeicesterSquare
 LeicesterSquare::LeicesterSquare()
 {
@@ -477,6 +743,44 @@ LeicesterSquare::LeicesterSquare()
 
 LeicesterSquare::~LeicesterSquare()
 {
+}
+
+int
+LeicesterSquare::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 22;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1150;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 110;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 330;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 800;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 975;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
 }
 
 //CoventryStreet
@@ -490,6 +794,44 @@ CoventryStreet::~CoventryStreet()
 {
 }
 
+int
+CoventryStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 22;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1150;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 110;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 330;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 800;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 975;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //Piccadilly
 Piccadilly::Piccadilly()
 {
@@ -499,6 +841,44 @@ Piccadilly::Piccadilly()
 
 Piccadilly::~Piccadilly()
 {
+}
+
+int
+Piccadilly::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 22;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1200;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 120;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 360;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 850;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 1025;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
 }
 
 //RegentStreet
@@ -512,6 +892,44 @@ RegentStreet::~RegentStreet()
 {
 }
 
+int
+RegentStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 26;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1275;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 130;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 390;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 900;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 1100;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //OxfordStreet
 OxfordStreet::OxfordStreet()
 {
@@ -521,6 +939,44 @@ OxfordStreet::OxfordStreet()
 
 OxfordStreet::~OxfordStreet()
 {
+}
+
+int
+OxfordStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 26;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1275;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 130;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 390;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 900;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 1100;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
 }
 
 //BondStreet
@@ -534,6 +990,44 @@ BondStreet::~BondStreet()
 {
 }
 
+int
+BondStreet::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 28;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1400;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 150;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 450;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 1000;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 1200;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
+
 //ParkLane
 ParkLane::ParkLane()
 {
@@ -543,6 +1037,44 @@ ParkLane::ParkLane()
 
 ParkLane::~ParkLane()
 {
+}
+
+int
+ParkLane::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 35;
+
+    if (m_hotel == 1) 
+    {
+        rent = 1500;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 175;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 500;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 1100;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 1300;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
 }
 
 //Mayfair
@@ -556,4 +1088,41 @@ Mayfair::~Mayfair()
 {
 }
 
+int
+Mayfair::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    int rent = 50;
+
+    if (m_hotel == 1) 
+    {
+        rent = 2000;
+    }
+    else if (m_houses == 1) 
+    {
+        rent = 200;
+    }
+    else if (m_houses == 2) 
+    {
+        rent = 600;
+    }
+    else if (m_houses == 3) 
+    {
+        rent = 1400;
+    }
+    else if (m_houses == 4) 
+    {
+        rent = 1700;
+    }
+    else if (m_owned_all_colors == 1) 
+    {
+        rent *= 2;
+    }
+
+    return rent;
+}
 

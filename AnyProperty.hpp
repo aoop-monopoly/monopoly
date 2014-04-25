@@ -103,106 +103,151 @@ public:
 //NorthumberlandAvenue
 class NorthumberlandAvenue : public AnyProperty
 {
+public:
     NorthumberlandAvenue();
     ~NorthumberlandAvenue();
+
+    int rent();
 };
 
 //BowStreet
 class BowStreet : public AnyProperty
 {
+public:
     BowStreet();
     ~BowStreet();
+
+    int rent();
 };
 
 //MarlboroughStreet
 class MarlboroughStreet : public AnyProperty
 {
+public:
     MarlboroughStreet();
     ~MarlboroughStreet();
+
+    int rent();
 };
 
 //VineStreet
 class VineStreet : public AnyProperty
 {
+public:
     VineStreet();
     ~VineStreet();
+
+    int rent();
 };
 
 //Strand
 class Strand : public AnyProperty
 {
+public:
     Strand();
     ~Strand();
+
+    int rent();
 };
 
 //FleetStreet
 class FleetStreet : public AnyProperty
 {
+public:
     FleetStreet();
     ~FleetStreet();
+
+    int rent();
 };
 
 //TrafalgarSquare
 class TrafalgarSquare : public AnyProperty
 {
+public:
     TrafalgarSquare();
     ~TrafalgarSquare();
+
+    int rent();
 };
 
 //LeicesterSquare
 class LeicesterSquare : public AnyProperty
 {
+public:
     LeicesterSquare();
     ~LeicesterSquare();
+
+    int rent();
 };
 
 //CoventryStreet
 class CoventryStreet : public AnyProperty
 {
+public:
     CoventryStreet();
     ~CoventryStreet();
+
+    int rent();
 };
 
 //Piccadilly
 class Piccadilly : public AnyProperty
 {
+public:
     Piccadilly();
     ~Piccadilly();
+
+    int rent();
 };
 
 //RegentStreet
 class RegentStreet : public AnyProperty
 {
+public:
     RegentStreet();
     ~RegentStreet();
+
+    int rent();
 };
 
 //OxfordStreet
 class OxfordStreet : public AnyProperty
 {
+public:
     OxfordStreet();
     ~OxfordStreet();
+
+    int rent();
 };
 
 //BondStreet
 class BondStreet : public AnyProperty
 {
+public:
     BondStreet();
     ~BondStreet();
+
+    int rent();
 };
 
 //ParkLane
 class ParkLane : public AnyProperty
 {
+public:
     ParkLane();
     ~ParkLane();
+
+    int rent();
 };
 
 //Mayfair
 class Mayfair : public AnyProperty
 {
+public:
     Mayfair();
     ~Mayfair();
+
+    int rent();
 };
 
 
