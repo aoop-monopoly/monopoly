@@ -12,6 +12,9 @@ public:
     void trade(Player buyer, Player seller);
     void mortgage();
     void unMortgage();
+    int houseCost();
+    int hotelCost();
+    int mortgageValue();
     
     virtual int rent() = 0;
     virtual void buildHouse(int amount) = 0;
@@ -27,6 +30,8 @@ protected:
     int m_hotel;
     int m_position;
     int m_price;
+    int m_build_cost;
+    int m_morgage_value;
 };
 
 

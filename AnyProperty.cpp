@@ -46,11 +46,31 @@ AnyProperty::unMortgage()
     m_owner.spend(m_price/2);
 }
 
+int
+AnyProperty::houseCost()
+{
+    return m_build_cost;
+}
+
+int
+AnyProperty::hotelCost()
+{
+    return m_build_cost * 5;
+}
+
+int
+AnyProperty::mortgageValue()
+{
+    return m_morgage_value;
+}
+
 //OldKentRoad
 OldKentRoad::OldKentRoad()
 {
     m_position = 1;
     m_price = 60;
+    m_build_cost = 30;
+    m_morgage_value = 50;
 }
 
 OldKentRoad::~OldKentRoad(void)
@@ -101,6 +121,8 @@ WhitechapelRoad::WhitechapelRoad()
 {
     m_position = 3;
     m_price = 60;
+    m_build_cost = 30;
+    m_morgage_value = 50;   
 }
 
 WhitechapelRoad::~WhitechapelRoad(void)
@@ -150,6 +172,8 @@ TheAngelIslington::TheAngelIslington()
 {
     m_position = 6;
     m_price = 100;
+    m_build_cost = 50;
+    m_morgage_value = 50;
 }
 
 TheAngelIslington::~TheAngelIslington(void)
@@ -200,6 +224,8 @@ EustonRoad::EustonRoad()
 {
     m_position = 8;
     m_price = 100;
+    m_build_cost = 50;
+    m_morgage_value = 50;
 }
 
 EustonRoad::~EustonRoad(void)
@@ -249,6 +275,8 @@ PentonvilleRoad::PentonvilleRoad()
 {
     m_position = 9;
     m_price = 120;
+    m_build_cost = 50;
+    m_morgage_value = 60;
 }
 
 PentonvilleRoad::~PentonvilleRoad(void)
@@ -298,6 +326,8 @@ PallMall::PallMall()
 {
     m_position = 11;
     m_price = 140;
+    m_build_cost = 100;
+    m_morgage_value = 70;
 }
 
 PallMall::~PallMall()
@@ -347,6 +377,8 @@ Whitehall::Whitehall()
 {
     m_position = 13;
     m_price = 140;
+    m_build_cost = 100;
+    m_morgage_value = 70;
 }
 
 Whitehall::~Whitehall()
@@ -396,6 +428,8 @@ NorthumberlandAvenue::NorthumberlandAvenue()
 {
     m_position = 14;
     m_price = 160;
+    m_build_cost = 100;
+    m_morgage_value = 80;
 }
 
 NorthumberlandAvenue::~NorthumberlandAvenue()
@@ -445,6 +479,8 @@ BowStreet::BowStreet()
 {
     m_position = 16;
     m_price = 180;
+    m_build_cost = 100;
+    m_morgage_value = 90;
 }
 
 BowStreet::~BowStreet()
@@ -494,6 +530,8 @@ MarlboroughStreet::MarlboroughStreet()
 {
     m_position = 18;
     m_price = 180;
+    m_build_cost = 100;
+    m_morgage_value = 90;
 }
 
 MarlboroughStreet::~MarlboroughStreet()
@@ -543,6 +581,8 @@ VineStreet::VineStreet()
 {
     m_position = 19;
     m_price = 200;
+    m_build_cost = 100;
+    m_morgage_value = 100;
 }
 
 VineStreet::~VineStreet()
@@ -592,6 +632,8 @@ Strand::Strand()
 {
     m_position = 21;
     m_price = 220;
+    m_build_cost = 150;
+    m_morgage_value = 110;
 }
 
 Strand::~Strand()
@@ -641,6 +683,8 @@ FleetStreet::FleetStreet()
 {
     m_position = 23;
     m_price = 220;
+    m_build_cost = 150;
+    m_morgage_value = 110;
 }
 
 FleetStreet::~FleetStreet()
@@ -690,6 +734,8 @@ TrafalgarSquare::TrafalgarSquare()
 {
     m_position = 24;
     m_price = 240;
+    m_build_cost = 150;
+    m_morgage_value = 120;
 }
 
 TrafalgarSquare::~TrafalgarSquare()
@@ -739,6 +785,8 @@ LeicesterSquare::LeicesterSquare()
 {
     m_position = 26;
     m_price = 260;
+    m_build_cost = 150;
+    m_morgage_value = 150;
 }
 
 LeicesterSquare::~LeicesterSquare()
@@ -788,6 +836,8 @@ CoventryStreet::CoventryStreet()
 {
     m_position = 27;
     m_price = 260;
+    m_build_cost = 150;
+    m_morgage_value = 150;
 }
 
 CoventryStreet::~CoventryStreet()
@@ -837,6 +887,8 @@ Piccadilly::Piccadilly()
 {
     m_position = 29;
     m_price = 280;
+    m_build_cost = 140;
+    m_morgage_value = 150;
 }
 
 Piccadilly::~Piccadilly()
@@ -886,6 +938,8 @@ RegentStreet::RegentStreet()
 {
     m_position = 31;
     m_price = 300;
+    m_build_cost = 150;
+    m_morgage_value = 200;
 }
 
 RegentStreet::~RegentStreet()
@@ -935,6 +989,8 @@ OxfordStreet::OxfordStreet()
 {
     m_position = 32;
     m_price = 300;
+    m_build_cost = 150;
+    m_morgage_value = 200;
 }
 
 OxfordStreet::~OxfordStreet()
@@ -984,6 +1040,8 @@ BondStreet::BondStreet()
 {
     m_position = 34;
     m_price = 320;
+    m_build_cost = 160;
+    m_morgage_value = 200;
 }
 
 BondStreet::~BondStreet()
@@ -1033,6 +1091,8 @@ ParkLane::ParkLane()
 {
     m_position = 37;
     m_price = 350;
+    m_build_cost = 200;
+    m_morgage_value = 175;
 }
 
 ParkLane::~ParkLane()
@@ -1082,6 +1142,8 @@ Mayfair::Mayfair()
 {
     m_position = 39;
     m_price = 400;
+    m_build_cost = 200;
+    m_morgage_value = 200;
 }
 
 Mayfair::~Mayfair()
