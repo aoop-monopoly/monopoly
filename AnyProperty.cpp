@@ -2,7 +2,9 @@
 
 AnyProperty::AnyProperty()
     :m_owned_all_colors(false),
-    m_mortgaged(false)
+    m_mortgaged(false),
+    m_houses(0),
+    m_hotel(0)
 {
 }
 
@@ -62,6 +64,20 @@ int
 AnyProperty::mortgageValue()
 {
     return m_morgage_value;
+}
+
+void
+AnyProperty::buildHouse(int amount)
+{
+    m_houses += amount;
+    m_owner.spend(amount * m_build_cost);
+}
+
+void
+AnyProperty::buildHotel()
+{
+    m_houses = 1;
+    m_owner.spend(m_build_cost * 5);
 }
 
 //OldKentRoad

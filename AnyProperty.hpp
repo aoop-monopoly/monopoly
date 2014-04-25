@@ -15,12 +15,10 @@ public:
     int houseCost();
     int hotelCost();
     int mortgageValue();
+    void buildHouse(int amount);
+    void buildHotel();
     
     virtual int rent() = 0;
-    virtual void buildHouse(int amount) = 0;
-    virtual void buildHotel() = 0;
-    virtual void sellHouse(int amount) = 0;
-    virtual void sellHotel() = 0;
 
 protected:
     Player m_owner;
