@@ -8,7 +8,9 @@ AnyProperty::AnyProperty()
     :m_owned_all_colors(false),
     m_mortgaged(false),
     m_houses(0),
-    m_hotel(0)
+    m_hotel(0),
+    m_build_cost(0),
+    m_morgage_value(false)
 {
 }
 
@@ -128,7 +130,7 @@ OldKentRoad::rent()
     {
         rent = 160;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -180,7 +182,7 @@ WhitechapelRoad::rent()
     {
         rent = 360;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -231,7 +233,7 @@ TheAngelIslington::rent()
     {
         rent = 400;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -283,7 +285,7 @@ EustonRoad::rent()
     {
         rent = 400;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -334,7 +336,7 @@ PentonvilleRoad::rent()
     {
         rent = 450;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -385,7 +387,7 @@ PallMall::rent()
     {
         rent = 625;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -436,7 +438,7 @@ Whitehall::rent()
     {
         rent = 625;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -487,7 +489,7 @@ NorthumberlandAvenue::rent()
     {
         rent = 700;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -538,7 +540,7 @@ BowStreet::rent()
     {
         rent = 750;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -589,7 +591,7 @@ MarlboroughStreet::rent()
     {
         rent = 750;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -640,7 +642,7 @@ VineStreet::rent()
     {
         rent = 800;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -691,7 +693,7 @@ Strand::rent()
     {
         rent = 875;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -742,7 +744,7 @@ FleetStreet::rent()
     {
         rent = 875;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -793,7 +795,7 @@ TrafalgarSquare::rent()
     {
         rent = 925;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -844,7 +846,7 @@ LeicesterSquare::rent()
     {
         rent = 975;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -895,7 +897,7 @@ CoventryStreet::rent()
     {
         rent = 975;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -946,7 +948,7 @@ Piccadilly::rent()
     {
         rent = 1025;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -997,7 +999,7 @@ RegentStreet::rent()
     {
         rent = 1100;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -1048,7 +1050,7 @@ OxfordStreet::rent()
     {
         rent = 1100;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -1099,7 +1101,7 @@ BondStreet::rent()
     {
         rent = 1200;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -1150,7 +1152,7 @@ ParkLane::rent()
     {
         rent = 1300;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
@@ -1201,11 +1203,150 @@ Mayfair::rent()
     {
         rent = 1700;
     }
-    else if (m_owned_all_colors == 1) 
+    else if (m_owned_all_colors == true) 
     {
         rent *= 2;
     }
 
     return rent;
 }
+
+//KingsCrossStation
+KingsCrossStation::KingsCrossStation()
+{
+    m_position = 5;
+    m_price = 200;
+    m_morgage_value = 100;
+}
+
+KingsCrossStation::~KingsCrossStation()
+{
+}
+
+int
+KingsCrossStation::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    return 25;
+}
+
+//MaryleboneStation
+MaryleboneStation::MaryleboneStation()
+{
+    m_position = 15;
+    m_price = 200;
+    m_morgage_value = 100;
+}
+
+MaryleboneStation::~MaryleboneStation()
+{
+}
+
+int
+MaryleboneStation::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    return 25;
+}
+
+//FenchurchStStation
+FenchurchStStation::FenchurchStStation()
+{
+    m_position = 25;
+    m_price = 200;
+    m_morgage_value = 100;
+}
+
+FenchurchStStation::~FenchurchStStation()
+{
+}
+
+int
+FenchurchStStation::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    return 25;
+}
+
+//LiverpoolStreetStation
+LiverpoolStreetStation::LiverpoolStreetStation()
+{
+    m_position = 35;
+    m_price = 200;
+    m_morgage_value = 100;
+}
+
+LiverpoolStreetStation::~LiverpoolStreetStation()
+{
+}
+
+int
+LiverpoolStreetStation::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    return 25;
+}
+
+//ElectricCompany
+ElectricCompany::ElectricCompany()
+{
+    m_position = 12;
+    m_price = 150;
+    m_morgage_value = 75;
+}
+
+ElectricCompany::~ElectricCompany()
+{
+}
+
+int
+ElectricCompany::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    return 1;
+}
+
+//WaterWorks
+WaterWorks::WaterWorks()
+{
+    m_position = 28;
+    m_price = 150;
+    m_morgage_value = 75;
+}
+
+WaterWorks::~WaterWorks()
+{
+}
+
+int
+WaterWorks::rent()
+{
+    if (m_mortgaged)
+    {
+        return 0;
+    }
+
+    return 1;
+}
+
 

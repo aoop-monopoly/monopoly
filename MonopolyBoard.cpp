@@ -22,8 +22,9 @@ MonopolyBoard::MonopolyBoard(void)
     m_board_squares[3] = new Square(SquareType::property, "Whitechapel Road", property_whitechapel_road);
     
     m_board_squares[4] = new Square(SquareType::tax);
-    
-    m_board_squares[5] = new Square(SquareType::station,  "King's Cross Station");
+
+    KingsCrossStation *station_kings_cross = new KingsCrossStation();
+    m_board_squares[5] = new Square(SquareType::station,  "King's Cross Station", station_kings_cross);
 
     TheAngelIslington *property_the_angel_islington = new TheAngelIslington();
     m_board_squares[6] = new Square(SquareType::property, "The Angel Islington", property_the_angel_islington);
@@ -40,16 +41,18 @@ MonopolyBoard::MonopolyBoard(void)
 
     PallMall *property_pall_mall = new PallMall();
     m_board_squares[11] = new Square(SquareType::property, "Pall Mall", property_pall_mall);
-    
-    m_board_squares[12] = new Square(SquareType::utilities, "Electric Company");
+
+    ElectricCompany *utility_electric_company = new ElectricCompany();
+    m_board_squares[12] = new Square(SquareType::utilities, "Electric Company", utility_electric_company);
 
     Whitehall *property_whitehall = new Whitehall();
     m_board_squares[13] = new Square(SquareType::property, "Whitehall", property_whitehall);
 
     NorthumberlandAvenue *property_northumberland_avenue = new NorthumberlandAvenue();
     m_board_squares[14] = new Square(SquareType::property, "Northumberland Avenue", property_northumberland_avenue);
-    
-    m_board_squares[15] = new Square(SquareType::station,  "Marylebone Station");
+
+    MaryleboneStation *station_marylebone = new MaryleboneStation();
+    m_board_squares[15] = new Square(SquareType::station,  "Marylebone Station", station_marylebone);
 
     BowStreet *property_bow_street = new BowStreet();
     m_board_squares[16] = new Square(SquareType::property, "Bow Street", property_bow_street);
@@ -74,16 +77,18 @@ MonopolyBoard::MonopolyBoard(void)
 
     TrafalgarSquare *property_trafalgar_square = new TrafalgarSquare();
     m_board_squares[24] = new Square(SquareType::property, "Trafalgar Square", property_trafalgar_square);
-    
-    m_board_squares[25] = new Square(SquareType::station,  "Fenchurch St Station");
+
+    FenchurchStStation *station_fenchurch_st = new FenchurchStStation();
+    m_board_squares[25] = new Square(SquareType::station,  "Fenchurch St Station", station_fenchurch_st);
 
     LeicesterSquare *property_leicester_square = new LeicesterSquare();
     m_board_squares[26] = new Square(SquareType::property, "Leicester Square", property_leicester_square);
 
     CoventryStreet *property_coventry_street = new CoventryStreet();
     m_board_squares[27] = new Square(SquareType::property, "Coventry Street", property_coventry_street);
-    
-    m_board_squares[28] = new Square(SquareType::utilities, "Water Works");
+
+    WaterWorks *utility_water_works = new WaterWorks();
+    m_board_squares[28] = new Square(SquareType::utilities, "Water Works", utility_water_works);
 
     Piccadilly *property_piccadily = new Piccadilly();
     m_board_squares[29] = new Square(SquareType::property, "Piccadilly", property_piccadily);

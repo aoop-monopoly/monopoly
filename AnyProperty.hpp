@@ -254,3 +254,64 @@ public:
 };
 
 
+//KingsCrossStation 
+class KingsCrossStation : public AnyProperty
+{
+public:
+    KingsCrossStation();
+    ~KingsCrossStation();
+
+    int rent();
+};
+
+//MaryleboneStation 
+class MaryleboneStation : public AnyProperty
+{
+public:
+    MaryleboneStation();
+    ~MaryleboneStation();
+
+    int rent();
+};
+
+//FenchurchStStation 
+class FenchurchStStation : public AnyProperty
+{
+public:
+    FenchurchStStation();
+    ~FenchurchStStation();
+
+    int rent();
+};
+
+//LiverpoolStreetStation 
+class LiverpoolStreetStation : public AnyProperty
+{
+public:
+    LiverpoolStreetStation();
+    ~LiverpoolStreetStation();
+
+    int rent();
+};
+
+//ElectricCompany
+class ElectricCompany : public AnyProperty
+{
+public:
+    ElectricCompany();
+    ~ElectricCompany();
+
+    int rent();
+};
+
+//WaterWorks
+class WaterWorks : public AnyProperty
+{
+public:
+    WaterWorks();
+    ~WaterWorks();
+
+    int rent();
+};
+
+
