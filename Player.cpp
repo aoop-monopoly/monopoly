@@ -2,6 +2,7 @@
 
 Player::Player()
     :m_name("Bank"),
+    m_id(0),
     m_money(100000),
     m_position(0),
     m_in_jail(false),
@@ -9,8 +10,9 @@ Player::Player()
 {
 }
 
-Player::Player(string player_name)
+Player::Player(string player_name, int player_id)
     :m_name(player_name),
+    m_id(player_id),
     m_money(1000),
     m_position(0),
     m_in_jail(false),
@@ -21,6 +23,12 @@ Player::Player(string player_name)
 
 Player::~Player(void)
 {
+}
+
+int
+Player::getId()
+{
+    return m_id;
 }
 
 void
