@@ -107,8 +107,9 @@ MonopolyBoard::MonopolyBoard(void)
 
     BondStreet *property_bond_street = new BondStreet();
     m_board_squares[34] = new Square(SquareType::property, "Bond Street", property_bond_street);
-    
-    m_board_squares[35] = new Square(SquareType::station,  "Liverpool Street Station");
+
+    LiverpoolStreetStation *station_liverpool_street = new LiverpoolStreetStation();
+    m_board_squares[35] = new Square(SquareType::station,  "Liverpool Street Station", station_liverpool_street);
     
     m_board_squares[36] = new Square(SquareType::chance);
 
