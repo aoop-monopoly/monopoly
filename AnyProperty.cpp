@@ -1349,4 +1349,22 @@ WaterWorks::rent()
     return 1;
 }
 
+//IncomeTax
+IncomeTax::IncomeTax()
+{
+    m_position = 28;
+    m_price = 0;
+    m_morgage_value = 0;
+}
+
+IncomeTax::~IncomeTax()
+{
+}
+
+int
+IncomeTax::rent()
+{
+    return 200;
+}
+
 

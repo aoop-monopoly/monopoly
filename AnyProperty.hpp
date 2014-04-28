@@ -314,4 +314,14 @@ public:
     int rent();
 };
 
+//IncomeTax
+class IncomeTax : public AnyProperty
+{
+public:
+    IncomeTax();
+    ~IncomeTax();
+
+    int rent();
+};
+
 
