@@ -2,6 +2,8 @@ class Player {
   int position;
   int money;
   int railroad;
+  int utility;
+  int dice_roll;
 }
 
 abstract class Property {
@@ -2006,7 +2008,7 @@ class ParkPlace extends Property {
   }
 }
 
-class Pacific extends Property {
+class Boardwalk extends Property {
   int price = 400;
   int position = 39;
 
@@ -2100,9 +2102,306 @@ class Pacific extends Property {
   }
 }
 
-class Reading extends Property {
+class Electric extends Property {
+  int price = 150;
+  int position = 12;
+
+  @Override
+  protected int rent(Player _visitor) {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 4*_visitor.dice_roll;
+
+    if (owner.utility == 1) {
+      rent = 10*_visitor.dice_roll;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+    _buyer.utility++;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+    _buyer.utility++;
+    _seller.utility--;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+}
+
+class Water extends Property {
+  int price = 150;
+  int position = 28;
+
+  @Override
+  protected int rent(Player _visitor) {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 4*_visitor.dice_roll;
+
+    if (owner.utility == 2) {
+      rent = 10*_visitor.dice_roll;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+    _buyer.utility++;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+    _buyer.utility++;
+    _seller.utility--;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+}
+
+class ReadingRail extends Property {
   int price = 200;
   int position = 5;
+
+  @Override
+  protected int rent() {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 25;
+
+    if (owner.railroad == 1) {
+      rent = 25;
+    }
+    else if (owner.railroad == 1) {
+      rent = 50;
+    }
+    else if (owner.railroad == 2) {
+      rent = 100;
+    }
+    else if (owner.railroad == 3) {
+      rent = 200;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+    _buyer.railroad++;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+    _buyer.railroad++;
+    _seller.railroad--;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+}
+
+class PennsylvaniaRail extends Property {
+  int price = 200;
+  int position = 15;
+
+  @Override
+  protected int rent() {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 25;
+
+    if (owner.railroad == 1) {
+      rent = 25;
+    }
+    else if (owner.railroad == 1) {
+      rent = 50;
+    }
+    else if (owner.railroad == 2) {
+      rent = 100;
+    }
+    else if (owner.railroad == 3) {
+      rent = 200;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+    _buyer.railroad++;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+    _buyer.railroad++;
+    _seller.railroad--;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+}
+
+class BAndORail extends Property {
+  int price = 200;
+  int position = 25;
+
+  @Override
+  protected int rent() {
+
+    if (mortgaged) {
+      return 0;
+    }
+
+    int rent = 25;
+
+    if (owner.railroad == 1) {
+      rent = 25;
+    }
+    else if (owner.railroad == 1) {
+      rent = 50;
+    }
+    else if (owner.railroad == 2) {
+      rent = 100;
+    }
+    else if (owner.railroad == 3) {
+      rent = 200;
+    }
+
+    return rent;
+  }
+  
+  @Override
+  protected int position() {
+    return position;
+  }
+
+  @Override
+  protected void buy(Player _buyer) {
+    owner = _buyer;
+    _buyer.money -= price;
+    _buyer.railroad++;
+  }
+
+  @Override
+  protected void trade(Player _buyer, Player _seller) {
+    owner = _seller;
+    _buyer.money -= price;
+    _seller.money += price;
+    _buyer.railroad++;
+    _seller.railroad--;
+  }
+
+  @Override
+  protected void mortgage() {
+    mortgaged = 1;
+    owner.money += price/2;
+  }
+
+  @Override
+  protected void unMortgage() {
+    mortgaged = 0;
+    owner.money -= price/2;
+  }
+}
+
+class ShortLineRail extends Property {
+  int price = 200;
+  int position = 35;
 
   @Override
   protected int rent() {
