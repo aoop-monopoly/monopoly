@@ -131,9 +131,17 @@ void MonopolyBoard::setNumOfPlayers(int players)
 }
 
 
-void MonopolyBoard::buildBoard(void)
+void MonopolyBoard::createPlayers(void)
 {
+    string player_name;
     
+    for(int i = 1; i <= m_num_of_players; i++)
+    {
+        cout << "Please Enter Name of Player " << i << "\n";
+        cin >> player_name;
+
+        m_players.push_back(Player(player_name, i));
+    }
 }
 
 
@@ -149,6 +157,7 @@ int main(void)
 	cout << "Number of Player is " << players << "\n"; 
 
     board.setNumOfPlayers(players);
+    board.createPlayers();
     
 
 	int a = 0;

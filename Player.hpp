@@ -1,5 +1,6 @@
 
 #include <string>
+
 using namespace std;
 
 enum PlayerType
@@ -16,6 +17,7 @@ public:
 	~Player(void);
 
     int getId();
+    string getName();
     void spend(int money);
     void earn(int money);
     PlayerType getPlayerType();    

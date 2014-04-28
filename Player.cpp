@@ -31,6 +31,12 @@ Player::getId()
     return m_id;
 }
 
+string
+Player::getName()
+{
+    return m_name;
+}
+
 void
 Player::spend(int money)
 {
