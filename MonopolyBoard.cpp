@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "MonopolyBoard.hpp"
+#include "AnyNonProperty.hpp"
 #include "AnyProperty.hpp"
 #include "Bank.hpp"
 #include "Square.hpp"
@@ -20,8 +21,9 @@ MonopolyBoard::MonopolyBoard(void)
 
     WhitechapelRoad *property_whitechapel_road = new WhitechapelRoad();
     m_board_squares[3] = new Square(SquareType::property, "Whitechapel Road", property_whitechapel_road);
-    
-    m_board_squares[4] = new Square(SquareType::tax);
+
+    IncomeTax *income_tax = new IncomeTax();
+    m_board_squares[4] = new Square(SquareType::tax, "Tax Office", income_tax);
 
     KingsCrossStation *station_kings_cross = new KingsCrossStation();
     m_board_squares[5] = new Square(SquareType::station,  "King's Cross Station", station_kings_cross);
