@@ -31,6 +31,24 @@ Player::getId()
     return m_id;
 }
 
+int
+Player::getMoney()
+{
+    return m_money;
+}
+
+void
+Player::setPosition(int new_position)
+{
+    m_position = new_position;
+}
+
+int
+Player::getPosition()
+{
+    return m_money;
+}
+
 string
 Player::getName()
 {

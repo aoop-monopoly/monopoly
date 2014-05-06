@@ -17,6 +17,7 @@ public:
     int mortgageValue();
     void buildHouse(int amount);
     void buildHotel();
+    Player getOwner();
     
     virtual int rent() = 0;
 

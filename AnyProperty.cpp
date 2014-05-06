@@ -86,6 +86,12 @@ AnyProperty::buildHotel()
     m_owner.spend(m_build_cost * 5);
 }
 
+Player
+AnyProperty::getOwner()
+{
+    return m_owner;
+}
+
 //OldKentRoad
 OldKentRoad::OldKentRoad()
 {

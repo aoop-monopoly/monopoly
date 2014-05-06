@@ -17,6 +17,9 @@ public:
 	~Player(void);
 
     int getId();
+    int getMoney();
+    void setPosition(int new_position);
+    int getPosition();
     string getName();
     void spend(int money);
     void earn(int money);
