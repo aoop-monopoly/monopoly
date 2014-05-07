@@ -30,8 +30,14 @@ public:
     Square(SquareType square_type, AnyNonProperty *non_property);
 	~Square(void);
 
-public: 
+    SquareType getType();
+    int getOwnerId();
+    string getSquareName();
+    void informSquare();
+
+private: 
     SquareType   m_square_type;
     AnyProperty *m_property;
     AnyNonProperty *m_non_property;
+    string m_square_name;
 };
