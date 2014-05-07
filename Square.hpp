@@ -34,6 +34,7 @@ public:
     int getOwnerId();
     string getSquareName();
     void informSquare();
+    void visit(Player game_player);
 
 private: 
     SquareType   m_square_type;

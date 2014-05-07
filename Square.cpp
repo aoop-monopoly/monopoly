@@ -75,11 +75,39 @@ Square::informSquare()
 
     if(m_property)
     {
+        cout << "Owner : " << m_property->getOwner().getName() << "\n";
+        
         if(m_property->getOwner().getId())
         {
-            cout << "Owner : " << m_property->getOwner().getName() << "\n";
             cout << "Rent : " << m_property->rent() << "\n";
         }
+    }
+}
+
+void
+Square::visit(Player game_player)
+{
+    if(m_property)
+    {
+        int player_id = game_player.getId();
+        int owner_id = getOwnerId();
+
+        if(player_id == owner_id)
+        {
+            //check for building houses
+        }
+        else if(owner_id == 0)
+        {
+            //owner is bank, check for buy option
+        }
+        else
+        {
+            //owner any other player, get rent()
+        }
+    }
+    else //m_non_property
+    {
+        //CommunityChest or Chance, get random one of them and take action.
     }
 }
 
