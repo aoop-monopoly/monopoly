@@ -46,7 +46,7 @@ Player::setPosition(int new_position)
 int
 Player::getPosition()
 {
-    return m_money;
+    return m_position;
 }
 
 string
