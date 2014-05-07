@@ -3,14 +3,15 @@
 #include "MonopolyBoard.hpp"
 #include "AnyNonProperty.hpp"
 #include "AnyProperty.hpp"
-#include "Bank.hpp"
+#include "MyDice.hpp"
 #include "Square.hpp"
 
 
 using  namespace std;
 
 MonopolyBoard::MonopolyBoard(void)
-    : m_num_of_players(0)
+    : m_num_of_players(0),
+    m_current_player(0)
 {
     m_board_squares[0] = new Square(SquareType::go);
     
@@ -132,13 +133,21 @@ MonopolyBoard::~MonopolyBoard(void)
 {
 }
 
-void MonopolyBoard::setNumOfPlayers(int players)
+void 
+MonopolyBoard::setNumOfPlayers(int players)
 {
     m_num_of_players = players;
 }
 
+void
+MonopolyBoard::createBank()
+{
+    m_players.push_back(Player());
+}
 
-void MonopolyBoard::createPlayers(void)
+
+void 
+MonopolyBoard::createPlayers(void)
 {
     string player_name;
     
@@ -151,10 +160,73 @@ void MonopolyBoard::createPlayers(void)
     }
 }
 
+void
+MonopolyBoard::playerIstatistics(int player_id)
+{
+    bool has_asset = false;
+    cout << m_players[player_id].getName() << " turn\n";
+    cout << m_players[player_id].getMoney() << "$ and Position : " << m_players[player_id].getPosition() << "\n";
+
+    for(int i = 0; i < NUMBER_OF_SQUARES; i++)
+    {
+        if(m_board_squares[i]->getOwnerId() == player_id)
+        {
+            if(!has_asset)
+            {
+                has_asset = true;
+                cout << "ASSETS :\n";
+                
+            }
+            cout << m_board_squares[i]->getSquareName() << "\n";
+        }
+    }
+
+    if(!has_asset)
+    {
+        cout << "ASSETS : None\n";
+    }
+}
+
+void
+MonopolyBoard::movePlayer(int amount)
+{
+    int new_position = amount + m_players[m_current_player].getPosition();
+    m_players[m_current_player].setPosition(new_position);
+
+    m_board_squares[new_position]->informSquare();
+
+    
+}
+
+void
+MonopolyBoard::play()
+{
+    MyDice dice(12);
+    char enter = ' ';
+
+    m_current_player = 1;
+    
+    while(true)
+    {
+        playerIstatistics(m_current_player);
+
+        movePlayer(dice.dice());
+        
+        enter = ' ';
+        cin >> enter;
+
+        if(enter == 'c')
+            cout << "Continue........\n";
+        else
+            cout << "Not Know..............\n";
+    }
+}
+
 
 int main(void)
 {
     MonopolyBoard board;
+    
     int players = 0;
     cout << "Monopoly Satrts............... " << endl;
     cout << "Please Enter # of Players : ";
@@ -164,8 +236,10 @@ int main(void)
 	cout << "Number of Player is " << players << "\n"; 
 
     board.setNumOfPlayers(players);
+    board.createBank();
     board.createPlayers();
-    
+
+    board.play();
 
 	int a = 0;
 	cout << "Wait........";
