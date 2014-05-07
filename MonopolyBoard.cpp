@@ -194,8 +194,8 @@ MonopolyBoard::movePlayer(int amount)
     m_players[m_current_player].setPosition(new_position);
 
     m_board_squares[new_position]->informSquare();
-
     
+    m_board_squares[new_position]->visit(m_players[m_current_player]);
 }
 
 void
