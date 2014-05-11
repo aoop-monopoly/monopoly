@@ -6,6 +6,9 @@ Player::Player()
     m_money(100000),
     m_position(0),
     m_in_jail(false),
+    m_jail_free_card(false),
+    m_houses(0),
+    m_hotels(0),
     m_player_type(bank)
 {
 }
@@ -16,6 +19,9 @@ Player::Player(string player_name, int player_id)
     m_money(1000),
     m_position(0),
     m_in_jail(false),
+    m_jail_free_card(false),
+    m_houses(0),
+    m_hotels(0),
     m_player_type(player)
     
 {
@@ -71,6 +77,42 @@ PlayerType
 Player::getPlayerType()
 {
     return m_player_type;
+}
+
+void
+Player::setJailFreeCard(bool free)
+{
+    m_jail_free_card = free;
+}
+
+bool
+Player::getJailFreeCard()
+{
+    return m_jail_free_card;
+}
+
+void
+Player::buildHouse()
+{
+    m_houses++;
+}
+
+int
+Player::getHouses()
+{
+    return m_houses;
+}
+
+void
+Player::buildHotel()
+{
+    m_hotels++;
+}
+
+int
+Player::getHotels()
+{
+    return m_hotels;
 }
 
 

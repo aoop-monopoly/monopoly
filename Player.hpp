@@ -3,6 +3,8 @@
 
 using namespace std;
 
+#define PLAYER_BANK  0
+
 enum PlayerType
 {
     bank,
@@ -23,7 +25,13 @@ public:
     string getName();
     void spend(int money);
     void earn(int money);
-    PlayerType getPlayerType();    
+    PlayerType getPlayerType();
+    void setJailFreeCard(bool free);
+    bool getJailFreeCard();
+    void buildHouse();
+    int getHouses();
+    void buildHotel();
+    int getHotels();
 
 private:
     PlayerType m_player_type;
@@ -31,6 +39,9 @@ private:
     int m_id;
     int m_money;
     bool m_in_jail;
+    bool m_jail_free_card;
     int m_position;
+    int m_houses;
+    int m_hotels;    
 };
 

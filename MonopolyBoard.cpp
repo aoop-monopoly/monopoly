@@ -13,120 +13,120 @@ MonopolyBoard::MonopolyBoard(void)
     : m_num_of_players(0),
     m_current_player(0)
 {
-    m_board_squares[0] = new Square(SquareType::go);
+    m_board_squares[0] = new Square(go);
     
     OldKentRoad *property_old_kent_road = new OldKentRoad();
-    m_board_squares[1] = new Square(SquareType::property, "Old Kent Road", property_old_kent_road);
+    m_board_squares[1] = new Square(property, brown ,"Old Kent Road", property_old_kent_road);
 
     CommunityChest *non_property_community_chest_1 = new CommunityChest();
-    m_board_squares[2] = new Square(SquareType::community_chest, non_property_community_chest_1);
+    m_board_squares[2] = new Square(community_chest, non_property_community_chest_1);
 
     WhitechapelRoad *property_whitechapel_road = new WhitechapelRoad();
-    m_board_squares[3] = new Square(SquareType::property, "Whitechapel Road", property_whitechapel_road);
+    m_board_squares[3] = new Square(property, brown, "Whitechapel Road", property_whitechapel_road);
 
     IncomeTax *income_tax = new IncomeTax();
-    m_board_squares[4] = new Square(SquareType::tax, "Tax Office", income_tax);
+    m_board_squares[4] = new Square(tax, color_tax_office, "Tax Office", income_tax);
 
     KingsCrossStation *station_kings_cross = new KingsCrossStation();
-    m_board_squares[5] = new Square(SquareType::station,  "King's Cross Station", station_kings_cross);
+    m_board_squares[5] = new Square(station,  color_stations, "King's Cross Station", station_kings_cross);
 
     TheAngelIslington *property_the_angel_islington = new TheAngelIslington();
-    m_board_squares[6] = new Square(SquareType::property, "The Angel Islington", property_the_angel_islington);
+    m_board_squares[6] = new Square(property, blue, "The Angel Islington", property_the_angel_islington);
 
     Chance *non_property_chance_1 = new Chance();
-    m_board_squares[7] = new Square(SquareType::chance, non_property_chance_1);
+    m_board_squares[7] = new Square(chance, non_property_chance_1);
 
     EustonRoad *property_euston_road = new EustonRoad();
-    m_board_squares[8] = new Square(SquareType::property, "Euston Road", property_euston_road);
+    m_board_squares[8] = new Square(property, blue, "Euston Road", property_euston_road);
 
     PentonvilleRoad *property_pentonville_road = new PentonvilleRoad();
-    m_board_squares[9] = new Square(SquareType::property, "Pentonville Road", property_pentonville_road);
+    m_board_squares[9] = new Square(property, blue, "Pentonville Road", property_pentonville_road);
     
-    m_board_squares[10] = new Square(SquareType::jail);
+    m_board_squares[10] = new Square(jail);
 
     PallMall *property_pall_mall = new PallMall();
-    m_board_squares[11] = new Square(SquareType::property, "Pall Mall", property_pall_mall);
+    m_board_squares[11] = new Square(property, pink, "Pall Mall", property_pall_mall);
 
     ElectricCompany *utility_electric_company = new ElectricCompany();
-    m_board_squares[12] = new Square(SquareType::utilities, "Electric Company", utility_electric_company);
+    m_board_squares[12] = new Square(utilities, color_utilities, "Electric Company", utility_electric_company);
 
     Whitehall *property_whitehall = new Whitehall();
-    m_board_squares[13] = new Square(SquareType::property, "Whitehall", property_whitehall);
+    m_board_squares[13] = new Square(property, pink, "Whitehall", property_whitehall);
 
     NorthumberlandAvenue *property_northumberland_avenue = new NorthumberlandAvenue();
-    m_board_squares[14] = new Square(SquareType::property, "Northumberland Avenue", property_northumberland_avenue);
+    m_board_squares[14] = new Square(property, pink, "Northumberland Avenue", property_northumberland_avenue);
 
     MaryleboneStation *station_marylebone = new MaryleboneStation();
-    m_board_squares[15] = new Square(SquareType::station,  "Marylebone Station", station_marylebone);
+    m_board_squares[15] = new Square(station,  color_stations, "Marylebone Station", station_marylebone);
 
     BowStreet *property_bow_street = new BowStreet();
-    m_board_squares[16] = new Square(SquareType::property, "Bow Street", property_bow_street);
+    m_board_squares[16] = new Square(property, orange, "Bow Street", property_bow_street);
 
     CommunityChest *non_property_community_chest_2 = new CommunityChest();
-    m_board_squares[17] = new Square(SquareType::community_chest, non_property_community_chest_2);
+    m_board_squares[17] = new Square(community_chest, non_property_community_chest_2);
 
     MarlboroughStreet *property_marlborough_street = new MarlboroughStreet();
-    m_board_squares[18] = new Square(SquareType::property, "Marlborough Street", property_marlborough_street);
+    m_board_squares[18] = new Square(property, orange, "Marlborough Street", property_marlborough_street);
 
     VineStreet *property_vine_street = new VineStreet();
-    m_board_squares[19] = new Square(SquareType::property, "Vine Street", property_vine_street);
+    m_board_squares[19] = new Square(property, orange, "Vine Street", property_vine_street);
     
-    m_board_squares[20] = new Square(SquareType::free_parking);
+    m_board_squares[20] = new Square(free_parking);
 
     Strand *property_strand = new Strand();
-    m_board_squares[21] = new Square(SquareType::property, "Strand", property_strand);
+    m_board_squares[21] = new Square(property, red, "Strand", property_strand);
 
     Chance *non_property_chance_2 = new Chance();
-    m_board_squares[22] = new Square(SquareType::chance, non_property_chance_2);
+    m_board_squares[22] = new Square(chance, non_property_chance_2);
 
     FleetStreet *property_fleet_street = new FleetStreet();
-    m_board_squares[23] = new Square(SquareType::property, "Fleet Street", property_fleet_street);
+    m_board_squares[23] = new Square(property, red, "Fleet Street", property_fleet_street);
 
     TrafalgarSquare *property_trafalgar_square = new TrafalgarSquare();
-    m_board_squares[24] = new Square(SquareType::property, "Trafalgar Square", property_trafalgar_square);
+    m_board_squares[24] = new Square(property, red, "Trafalgar Square", property_trafalgar_square);
 
     FenchurchStStation *station_fenchurch_st = new FenchurchStStation();
-    m_board_squares[25] = new Square(SquareType::station,  "Fenchurch St Station", station_fenchurch_st);
+    m_board_squares[25] = new Square(station,  color_stations, "Fenchurch St Station", station_fenchurch_st);
 
     LeicesterSquare *property_leicester_square = new LeicesterSquare();
-    m_board_squares[26] = new Square(SquareType::property, "Leicester Square", property_leicester_square);
+    m_board_squares[26] = new Square(property, yellow, "Leicester Square", property_leicester_square);
 
     CoventryStreet *property_coventry_street = new CoventryStreet();
-    m_board_squares[27] = new Square(SquareType::property, "Coventry Street", property_coventry_street);
+    m_board_squares[27] = new Square(property, yellow, "Coventry Street", property_coventry_street);
 
     WaterWorks *utility_water_works = new WaterWorks();
-    m_board_squares[28] = new Square(SquareType::utilities, "Water Works", utility_water_works);
+    m_board_squares[28] = new Square(utilities, color_utilities, "Water Works", utility_water_works);
 
     Piccadilly *property_piccadily = new Piccadilly();
-    m_board_squares[29] = new Square(SquareType::property, "Piccadilly", property_piccadily);
+    m_board_squares[29] = new Square(property, yellow, "Piccadilly", property_piccadily);
     
-    m_board_squares[30] = new Square(SquareType::go_to_jail);
+    m_board_squares[30] = new Square(go_to_jail);
 
     RegentStreet *property_regent_street = new RegentStreet();
-    m_board_squares[31] = new Square(SquareType::property, "Regent Street", property_regent_street);
+    m_board_squares[31] = new Square(property, green, "Regent Street", property_regent_street);
 
     OxfordStreet *property_oxford_street = new OxfordStreet();
-    m_board_squares[32] = new Square(SquareType::property, "Oxford Street", property_oxford_street);
+    m_board_squares[32] = new Square(property, green, "Oxford Street", property_oxford_street);
 
     CommunityChest *non_property_community_chest_3 = new CommunityChest();
-    m_board_squares[33] = new Square(SquareType::community_chest, non_property_community_chest_3);
+    m_board_squares[33] = new Square(community_chest, non_property_community_chest_3);
 
     BondStreet *property_bond_street = new BondStreet();
-    m_board_squares[34] = new Square(SquareType::property, "Bond Street", property_bond_street);
+    m_board_squares[34] = new Square(property, green, "Bond Street", property_bond_street);
 
     LiverpoolStreetStation *station_liverpool_street = new LiverpoolStreetStation();
-    m_board_squares[35] = new Square(SquareType::station,  "Liverpool Street Station", station_liverpool_street);
+    m_board_squares[35] = new Square(station,  color_stations, "Liverpool Street Station", station_liverpool_street);
 
     Chance *non_property_chance_3 = new Chance();
-    m_board_squares[36] = new Square(SquareType::chance, non_property_chance_3);
+    m_board_squares[36] = new Square(chance, non_property_chance_3);
 
     ParkLane *property_park_lane = new ParkLane();
-    m_board_squares[37] = new Square(SquareType::property, "Park Lane", property_park_lane);
+    m_board_squares[37] = new Square(property, dark_blue, "Park Lane", property_park_lane);
     
-    m_board_squares[38] = new Square(SquareType::tax);
+    m_board_squares[38] = new Square(tax);
 
     Mayfair *property_mayfair = new Mayfair();
-    m_board_squares[39] = new Square(SquareType::property, " Mayfair", property_mayfair);
+    m_board_squares[39] = new Square(property, dark_blue, " Mayfair", property_mayfair);
 }
 
 MonopolyBoard::~MonopolyBoard(void)
@@ -169,7 +169,7 @@ MonopolyBoard::playerIstatistics(int player_id)
 
     for(int i = 0; i < NUMBER_OF_SQUARES; i++)
     {
-        if(m_board_squares[i]->getOwnerId() == player_id)
+        if(m_board_squares[i]->getProperty()->getOwner().getId() == player_id)
         {
             if(!has_asset)
             {
@@ -187,6 +187,221 @@ MonopolyBoard::playerIstatistics(int player_id)
     }
 }
 
+int 
+MonopolyBoard::getBuiltHouses(PropertyColor color)
+{
+    int houses = 0;
+    for(int i = 1; i < NUMBER_OF_SQUARES; i++)
+    {
+        if(m_board_squares[i]->getColor() == color)
+        {
+            houses += m_board_squares[i]->getProperty()->getHouses();
+        }
+    }
+
+    return houses;
+}
+
+int
+MonopolyBoard::getMaxHouses(PropertyColor color)
+{
+    if(color == brown || color == dark_blue)
+    {
+        return 8;
+    }
+    else
+    {
+        return 12;
+    }
+}
+
+int
+MonopolyBoard::getPossiblePropertyForHouseBuilding(PropertyColor color)
+{
+    int houses = 4;
+    int position = m_players[m_current_player].getPosition();
+    
+    for(int i = NUMBER_OF_SQUARES - 1; i >= 0; i--)
+    {
+        if(m_board_squares[i]->getColor() == color)
+        {
+            if(m_board_squares[i]->getProperty()->getHouses() <= houses)
+            {
+                houses = m_board_squares[i]->getProperty()->getHouses();
+                position = m_board_squares[i]->getProperty()->getPosition();
+            }
+        }
+    }
+
+    return position;
+}
+
+void
+MonopolyBoard::buildHouse(PropertyColor color)
+{
+    int houses = getBuiltHouses(color);
+    int max_houses = getMaxHouses(color);
+
+    cout << "You have" << houses << "houses\n";
+
+    if(houses < max_houses)
+    {
+        char reply = ' ';
+        
+        cout << "Dou you want build house? y(Yes) n(No)\n";
+        cin >> reply;
+        if(reply == 'y')
+        {
+            int house_to_build = 0;
+            while(true)
+            {
+                cout << "Please enter the number of house(s) : ";
+                cin >> house_to_build;
+                if((houses + house_to_build) <= MAX_NUMBER_OF_HOUSES)
+                {
+                    for(int i = 0; i < house_to_build; i++)
+                    {
+                        int position_to_build = getPossiblePropertyForHouseBuilding(color);
+                        m_board_squares[position_to_build]->getProperty()->buildHouse();
+                        m_players[PLAYER_BANK].earn(m_board_squares[position_to_build]->getProperty()->houseCost());
+                    }
+                    break;
+                }
+                else
+                {
+                    cout << "Wrong Input!\n";
+                }
+            }
+        }
+    }
+}
+
+int 
+MonopolyBoard::getBuiltHotels(PropertyColor color)
+{
+    int hotels = 0;
+    for(int i = 1; i < NUMBER_OF_SQUARES; i++)
+    {
+        if(m_board_squares[i]->getColor() == color)
+        {
+            hotels += m_board_squares[i]->getProperty()->getHotel();
+        }
+    }
+
+    return hotels;
+}
+
+int
+MonopolyBoard::getMaxHotels(PropertyColor color)
+{
+    if(color == brown || color == dark_blue)
+    {
+        return 2;
+    }
+    else
+    {
+        return 3;
+    }
+}
+
+int
+MonopolyBoard::getPossiblePropertyForHotelBuilding(PropertyColor color)
+{
+    int position = m_players[m_current_player].getPosition();
+    
+    for(int i = 0; i < NUMBER_OF_SQUARES; i++)
+    {
+        if(m_board_squares[i]->getColor() == color)
+        {
+            if(m_board_squares[i]->getProperty()->getHotel() == 0)
+            {
+                return m_board_squares[i]->getProperty()->getPosition();
+            }
+        }
+    }
+
+    return position;
+}
+
+void
+MonopolyBoard::buildHotel(PropertyColor color)
+{
+    int hotels = getBuiltHotels(color);
+    int max_hotels = getMaxHotels(color);
+    
+    if(getBuiltHouses(color) == getMaxHouses(color) && 
+        hotels < max_hotels)
+    {
+        char reply = ' ';
+        
+        cout << "Dou you want build hotel? y(Yes) n(No)\n";
+        cin >> reply;
+
+        if(reply == 'y')
+        {
+            int hotels_to_build = 0;
+            while(true)
+            {
+                cout << "Please enter the number of hotel(s) : ";
+                cin >> hotels_to_build;
+                if((hotels + hotels_to_build) <= max_hotels)
+                {
+                    for(int i = 0; i < hotels_to_build; i++)
+                    {
+                        int position_to_build = getPossiblePropertyForHotelBuilding(color);
+                        m_board_squares[position_to_build]->getProperty()->buildHotel();
+                        m_players[PLAYER_BANK].earn(m_board_squares[position_to_build]->getProperty()->hotelCost());
+                    }
+                    break;
+                }
+                else
+                {
+                    cout << "Wrong Input!\n";
+                }
+            }
+        }
+    }
+}
+
+void
+MonopolyBoard::visitOwnProperty(int position)
+{
+    if(m_board_squares[position]->getProperty()->ownColorGroup())
+    {
+        buildHouse(m_board_squares[position]->getColor());
+        buildHotel(m_board_squares[position]->getColor());
+    }
+}
+
+void
+MonopolyBoard::visitBankProperty(int position)
+{
+    if(m_board_squares[position]->getType() == tax)
+    {
+        m_board_squares[position]->getProperty()->payRent(m_players[m_current_player]);
+    }
+    else
+    {
+        char reply = ' ';
+        
+        cout << "Dou you want to buy " << m_board_squares[position]->getSquareName() << "?";
+        cin >> reply;
+
+        if(reply == 'y')
+        {
+            m_board_squares[position]->getProperty()->trade(m_players[m_current_player], m_players[PLAYER_BANK]);
+        }
+    }
+}
+
+void
+MonopolyBoard::visitOtherPlayerProperty(int position)
+{
+    cout << "You are paying " << m_board_squares[position]->getProperty()->rent() << " $ to player " << m_board_squares[position]->getProperty()->getOwner().getName();
+
+    m_board_squares[position]->getProperty()->payRent(m_players[m_current_player]);
+}
+
 void
 MonopolyBoard::movePlayer(int amount)
 {
@@ -194,8 +409,57 @@ MonopolyBoard::movePlayer(int amount)
     m_players[m_current_player].setPosition(new_position);
 
     m_board_squares[new_position]->informSquare();
-    
-    m_board_squares[new_position]->visit(m_players[m_current_player]);
+
+    if(m_board_squares[new_position]->isProperty()) //property, station, utilities, tax
+    {
+        int owner_id = m_board_squares[new_position]->getProperty()->getOwner().getId();
+
+        if(m_current_player == owner_id)
+        {
+           visitOwnProperty(new_position);
+        }
+        else if(owner_id == 0)
+        {
+            visitBankProperty(new_position);
+        }
+        else
+        {
+            visitOtherPlayerProperty(new_position);
+        }
+    }
+    else if(m_board_squares[new_position]->isNonProperty())//chance, community_chest
+    {
+        int card = m_board_squares[new_position]->getNonProperty()->applyCard(m_players[m_current_player], m_players);
+        if(m_board_squares[new_position]->getType() == chance)
+        {
+            if(card == chance_2)
+            {
+                if(m_players[m_current_player].getPosition() > 24)
+                {
+                    movePlayer(NUMBER_OF_SQUARES + 24 - m_players[m_current_player].getPosition());
+                }
+                else
+                {
+                    movePlayer(24 - m_players[m_current_player].getPosition());
+                }
+            }
+            else if(chance_3)
+            {
+                if(m_players[m_current_player].getPosition() > 11)
+                {
+                    movePlayer(NUMBER_OF_SQUARES + 11 - m_players[m_current_player].getPosition());
+                }
+                else
+                {
+                    movePlayer(11 - m_players[m_current_player].getPosition());
+                }
+            }
+        }
+    }
+    else//free_parking, jail, go, go_to_jail
+    {
+        
+    }
 }
 
 void

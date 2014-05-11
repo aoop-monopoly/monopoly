@@ -13,6 +13,12 @@ AnyNonProperty::~AnyNonProperty(void)
 {
 }
 
+string
+AnyNonProperty::getCard(int card)
+{
+    return m_cards[card];
+}
+
 CommunityChest::CommunityChest()
 {
     m_cards.push_back("Advance to Go (Collect $200)");
@@ -38,11 +44,99 @@ CommunityChest::~CommunityChest(void)
 {
 }
 
+int
+CommunityChest::applyCard(Player current_player, vector<Player> players)
+{
+    int card = rand() + NUMBER_OF_COMMUNITY_CHEST_CARDS;
+    int repair_cost = 0;
+    switch(card)
+    {
+        case community_chest_1 :
+            current_player.setPosition(0);
+            current_player.earn(200);
+            players[PLAYER_BANK].spend(200);
+            break;
+        case community_chest_2 :
+            current_player.earn(200);
+            players[PLAYER_BANK].spend(200);
+            break;
+        case community_chest_3 :
+            current_player.spend(50);
+            players[PLAYER_BANK].earn(50);
+            break;
+        case community_chest_4 :
+            current_player.earn(50);
+            players[PLAYER_BANK].spend(50);
+            break;
+        case community_chest_5 :
+            current_player.setJailFreeCard(true);
+            break;
+        case community_chest_6 :
+            current_player.setPosition(30);
+            break;
+        case community_chest_7 :
+            for(unsigned int i = 0; i < players.size(); i++)
+            {
+                if(current_player.getId() != players[i].getId())
+                {
+                    current_player.earn(50);
+                    players[i].spend(50);
+                }
+            }
+            break;
+        case community_chest_8 :
+        case community_chest_11 :
+        case community_chest_17 :
+            current_player.earn(100);
+            players[PLAYER_BANK].spend(100);
+            break;
+        case community_chest_9 :
+            current_player.earn(20);
+            players[PLAYER_BANK].spend(20);
+            break;
+        case community_chest_10 :
+            for(unsigned int i = 0; i < players.size(); i++)
+            {
+                if(current_player.getId() != players[i].getId())
+                {
+                    current_player.earn(10);
+                    players[i].spend(10);
+                }
+            }
+            break;
+        case community_chest_12 :
+            current_player.spend(100);
+            players[PLAYER_BANK].earn(100);
+            break;
+        case community_chest_13 :
+            current_player.spend(150);
+            players[PLAYER_BANK].earn(150);
+            break;
+        case community_chest_14 :
+            current_player.earn(25);
+            players[PLAYER_BANK].spend(25);
+            break;
+        case community_chest_15 :
+            repair_cost = (40 * current_player.getHouses()) + (115 * current_player.getHotels());
+            current_player.spend(repair_cost);
+            players[PLAYER_BANK].earn(repair_cost);
+            break;
+        case community_chest_16 :
+            current_player.earn(10);
+            players[PLAYER_BANK].spend(10);
+            break;
+        default :
+            break;
+    }
+
+    return card;
+}
+
 Chance::Chance()
 {
     m_cards.push_back("Advance to Go (Collect $200)");
-    m_cards.push_back("Advance to Illinois Ave. - If you pass Go, collect $200");
-    m_cards.push_back("Advance to St. Charles Place – If you pass Go, collect $200");
+    m_cards.push_back("Advance to Trafalgar Square. - If you pass Go, collect $200");
+    m_cards.push_back("Advance to Pall Mall – If you pass Go, collect $200");
     m_cards.push_back("Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times the amount thrown.");
     m_cards.push_back("Advance token to the nearest Railroad and pay owner twice the rental to which he/she {he} is otherwise entitled. If Railroad is unowned, you may buy it from the Bank.");
     m_cards.push_back("Bank pays you dividend of $50");
@@ -62,4 +156,36 @@ Chance::~Chance(void)
 {
 }
 
+int
+Chance::applyCard(Player current_player, vector<Player> players)
+{
+    int card = rand() + NUMBER_OF_CHANCE_CARDS;
+
+    switch(card)
+    {
+        case chance_1 :
+            current_player.setPosition(0);
+            current_player.earn(200);
+            players[PLAYER_BANK].spend(200);
+            break;
+        case chance_2 :
+            if(current_player.getPosition() > 24)
+            {
+                current_player.earn(200);
+                players[PLAYER_BANK].spend(200);
+            } 
+            break;
+        case chance_3 :
+            if(current_player.getPosition() > 11)
+            {
+                current_player.earn(200);
+                players[PLAYER_BANK].spend(200);
+            }  
+            break;
+        case chance_4 :
+            
+    }
+
+    return card;
+}
 

@@ -1,5 +1,11 @@
 #pragma once
+#ifndef player_hpp
+#define player_hpp
 #include "Player.hpp"
+#endif
+
+
+#define MAX_NUMBER_OF_HOUSES 4
 
 class AnyProperty 
 {
@@ -8,16 +14,19 @@ public:
     ~AnyProperty();
     
     int getPosition();
-    void buy(Player buyer);
+    void payRent(Player renter);
     void trade(Player buyer, Player seller);
     void mortgage();
     void unMortgage();
+    int getHouses();
+    int getHotel();
     int houseCost();
     int hotelCost();
     int mortgageValue();
-    void buildHouse(int amount);
+    void buildHouse();
     void buildHotel();
     Player getOwner();
+    bool ownColorGroup();
     
     virtual int rent() = 0;
 

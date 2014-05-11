@@ -21,23 +21,43 @@ enum SquareType
     utilities,
 };
 
+enum PropertyColor
+{
+    brown,
+    blue,
+    pink,
+    orange,
+    red,
+    yellow,
+    green,
+    dark_blue,
+    color_utilities,
+    color_stations,
+    color_tax_office,
+    color_none
+};
+
 class Square
 {
 public:
     Square(void);
 	Square(SquareType square_type);
-    Square(SquareType square_type, string square_name, AnyProperty *property);
+    Square(SquareType square_type, PropertyColor color, string square_name, AnyProperty *property);
     Square(SquareType square_type, AnyNonProperty *non_property);
 	~Square(void);
 
     SquareType getType();
-    int getOwnerId();
+    PropertyColor getColor();
+    AnyProperty* getProperty();
+    bool isProperty();
+    AnyNonProperty* getNonProperty();
+    bool isNonProperty();
     string getSquareName();
     void informSquare();
-    void visit(Player game_player);
 
 private: 
     SquareType   m_square_type;
+    PropertyColor m_color;
     AnyProperty *m_property;
     AnyNonProperty *m_non_property;
     string m_square_name;

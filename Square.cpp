@@ -10,14 +10,16 @@ Square::Square()
 
 Square::Square(SquareType square_type)
     :m_square_type(square_type),
+    m_color(color_none),
     m_property(NULL),
     m_non_property(NULL),
     m_square_name("")
 {
 }
 
-Square::Square(SquareType square_type, string square_name, AnyProperty *property)
+Square::Square(SquareType square_type, PropertyColor color, string square_name, AnyProperty *property)
     :m_square_type(square_type),
+    m_color(color),
     m_property(property),
     m_non_property(NULL),
     m_square_name(square_name)
@@ -27,6 +29,7 @@ Square::Square(SquareType square_type, string square_name, AnyProperty *property
 
 Square::Square(SquareType square_type, AnyNonProperty *non_property)
     :m_square_type(square_type),
+    m_color(color_none),
     m_non_property(non_property),
     m_property(NULL),
     m_square_name("")
@@ -52,15 +55,37 @@ Square::getType()
     return m_square_type;
 }
 
-int
-Square::getOwnerId()
+PropertyColor
+Square::getColor()
 {
-    if(m_property)
-    {
-        return m_property->getOwner().getId();
-    }
-    return 0;
+    return m_color;
 }
+
+
+AnyProperty*
+Square::getProperty()
+{
+    return m_property;
+}
+
+bool
+Square::isProperty()
+{
+    return m_property != NULL;
+}
+
+AnyNonProperty*
+Square::getNonProperty()
+{
+    return m_non_property;
+}
+
+bool
+Square::isNonProperty()
+{
+    return m_non_property != NULL;
+}
+
 
 string
 Square::getSquareName()
@@ -71,7 +96,7 @@ Square::getSquareName()
 void
 Square::informSquare()
 {
-    cout << m_square_name << "\n";
+    cout << "You are on " << m_square_name << "\n";
 
     if(m_property)
     {
@@ -81,33 +106,6 @@ Square::informSquare()
         {
             cout << "Rent : " << m_property->rent() << "\n";
         }
-    }
-}
-
-void
-Square::visit(Player game_player)
-{
-    if(m_property)
-    {
-        int player_id = game_player.getId();
-        int owner_id = getOwnerId();
-
-        if(player_id == owner_id)
-        {
-            //check for building houses
-        }
-        else if(owner_id == 0)
-        {
-            //owner is bank, check for buy option
-        }
-        else
-        {
-            //owner any other player, get rent()
-        }
-    }
-    else //m_non_property
-    {
-        //CommunityChest or Chance, get random one of them and take action.
     }
 }
 

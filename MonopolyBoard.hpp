@@ -13,6 +13,17 @@ public:
     void createBank(void);
     void createPlayers(void);
     void playerIstatistics(int player_id);
+    int getBuiltHouses(PropertyColor color);
+    int getMaxHouses(PropertyColor color);
+    int getPossiblePropertyForHouseBuilding(PropertyColor color);
+    void buildHouse(PropertyColor color);
+    int getBuiltHotels(PropertyColor color);
+    int getMaxHotels(PropertyColor color);
+    int getPossiblePropertyForHotelBuilding(PropertyColor color);
+    void buildHotel(PropertyColor color);
+    void visitOwnProperty(int position);
+    void visitBankProperty(int position);
+    void visitOtherPlayerProperty(int position);
     void movePlayer(int amount);
     void play(void);
 

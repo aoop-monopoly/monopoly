@@ -26,10 +26,11 @@ AnyProperty::getPosition()
 }
 
 void
-AnyProperty::buy(Player buyer)
+AnyProperty:: payRent(Player renter)
 {
-    m_owner = buyer;
-    buyer.spend(m_price);
+    int rent_price = rent();
+    renter.spend(rent_price);
+    m_owner.earn(rent_price);
 }
 
 void 
@@ -55,6 +56,18 @@ AnyProperty::unMortgage()
 }
 
 int
+AnyProperty::getHouses()
+{
+    return m_houses;
+}
+
+int
+AnyProperty::getHotel()
+{
+    return m_hotel;
+}
+
+int
 AnyProperty::houseCost()
 {
     return m_build_cost;
@@ -73,23 +86,31 @@ AnyProperty::mortgageValue()
 }
 
 void
-AnyProperty::buildHouse(int amount)
+AnyProperty::buildHouse()
 {
-    m_houses += amount;
-    m_owner.spend(amount * m_build_cost);
+    m_houses++;
+    m_owner.spend(m_build_cost);
+    m_owner.buildHouse();
 }
 
 void
 AnyProperty::buildHotel()
 {
-    m_houses = 1;
+    m_hotel = 1;
     m_owner.spend(m_build_cost * 5);
+    m_owner.buildHotel();
 }
 
 Player
 AnyProperty::getOwner()
 {
     return m_owner;
+}
+
+bool
+AnyProperty::ownColorGroup()
+{
+    return m_owned_all_colors;
 }
 
 //OldKentRoad

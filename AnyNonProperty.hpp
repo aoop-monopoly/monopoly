@@ -1,11 +1,16 @@
 #pragma once
-
+#ifndef player_hpp
+#define player_hpp
+#include "Player.hpp"
+#endif
 #include <vector>
 #include <string>
 
 using namespace std;
 
 #define NUMBER_OF_COMMUNITY_CHEST_CARDS 17
+#define NUMBER_OF_CHANCE_CARDS 16
+
 
 enum CommunityChestType
 {
@@ -55,6 +60,10 @@ public:
 	AnyNonProperty(void);
 	~AnyNonProperty(void);
 
+    string getCard(int card);
+
+    virtual int applyCard(Player current_player, vector<Player> players) = 0;
+
 protected:
     vector<string> m_cards;
 };
@@ -65,6 +74,8 @@ class CommunityChest : public AnyNonProperty
 public:
     CommunityChest();
     ~CommunityChest();
+
+    int applyCard(Player current_player, vector<Player> players);
 };
 
 //Chance
@@ -73,6 +84,8 @@ class Chance : public AnyNonProperty
 public:
     Chance();
     ~Chance();
+
+    int applyCard(Player current_player, vector<Player> players);
 };
 
 
