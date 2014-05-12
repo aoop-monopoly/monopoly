@@ -145,7 +145,7 @@ Chance::Chance()
     m_cards.push_back("Go to Jail ");
     m_cards.push_back("Make general repairs on all your property – For each house pay $25 – For each hotel $100");
     m_cards.push_back("Pay poor tax of $15");
-    m_cards.push_back("Take a trip to Reading Railroad {Take a ride on the Reading} – If you pass Go, collect $200");
+    m_cards.push_back("Take a trip to King's Cross Station  – If you pass Go, collect $200");
     m_cards.push_back("Take a walk on the Boardwalk – Advance token to Boardwalk");
     m_cards.push_back("You have been elected Chairman of the Board – Pay each player $50");
     m_cards.push_back("Your building {and} loan matures – Collect $150");
@@ -160,7 +160,8 @@ int
 Chance::applyCard(Player current_player, vector<Player> players)
 {
     int card = rand() + NUMBER_OF_CHANCE_CARDS;
-
+    int repair_cost = 0;
+    
     switch(card)
     {
         case chance_1 :
@@ -185,6 +186,8 @@ Chance::applyCard(Player current_player, vector<Player> players)
         case chance_4 :
         case chance_5 :
         case chance_8 :
+        case chance_12 :
+        case chance_13 :
             break;
         case chance_6 :
             current_player.earn(50);
@@ -194,6 +197,34 @@ Chance::applyCard(Player current_player, vector<Player> players)
             current_player.setJailFreeCard(true);
             break;
         case chance_9 :
+            current_player.setPosition(30);
+            break;
+        case chance_10 :
+            repair_cost = (25 * current_player.getHouses()) + (100 * current_player.getHotels());
+            current_player.spend(repair_cost);
+            players[PLAYER_BANK].earn(repair_cost);
+            break;
+        case chance_11 :
+            current_player.spend(15);
+            players[PLAYER_BANK].earn(15);
+            break;
+        case chance_14 :
+            for(unsigned int i = 0; i < players.size(); i++)
+            {
+                if(current_player.getId() != players[i].getId())
+                {
+                    current_player.spend(50);
+                    players[i].earn(50);
+                }
+            }
+            break;
+        case chance_15 :
+            current_player.earn(150);
+            players[PLAYER_BANK].spend(150);
+            break;
+        case chance_16 :
+            current_player.earn(100);
+            players[PLAYER_BANK].spend(100);
             break;
     }
 

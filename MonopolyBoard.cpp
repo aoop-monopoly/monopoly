@@ -506,6 +506,19 @@ MonopolyBoard::movePlayer(int position)
             {
                 movePlayer(position - 3);
             }
+            else if(chance_12)
+            {
+                if(m_players[m_current_player].getPosition() > 5)
+                {
+                    m_players[m_current_player].earn(200);
+                    m_players[PLAYER_BANK].spend(200);
+                }
+                movePlayer(5);
+            }
+            else if(chance_13)
+            {
+                movePlayer(39);
+            }
         }
     }
     else//free_parking, jail, go, go_to_jail
