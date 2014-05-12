@@ -402,57 +402,109 @@ MonopolyBoard::visitOtherPlayerProperty(int position)
     m_board_squares[position]->getProperty()->payRent(m_players[m_current_player]);
 }
 
-void
-MonopolyBoard::movePlayer(int amount)
+int
+MonopolyBoard::findNearestUtility(int position)
 {
-    int new_position = amount + m_players[m_current_player].getPosition();
-    m_players[m_current_player].setPosition(new_position);
+    int distance_to_electric_company = abs(position - 12);
+    int distance_to_water_works = abs(position - 28);
 
-    m_board_squares[new_position]->informSquare();
+    return distance_to_electric_company <= distance_to_water_works ? 12 : 28;
+}
 
-    if(m_board_squares[new_position]->isProperty()) //property, station, utilities, tax
+int
+MonopolyBoard::findNearestStation(int position)
+{
+    int optimum_distance = abs(position - 5);
+
+    if(optimum_distance > abs(position - 15))
     {
-        int owner_id = m_board_squares[new_position]->getProperty()->getOwner().getId();
+        optimum_distance = abs(position - 15);
+    }
+
+    if(optimum_distance > abs(position - 25))
+    {
+        optimum_distance = abs(position - 25);
+    }
+
+    if(optimum_distance > abs(position - 35))
+    {
+        optimum_distance = abs(position - 35);
+    }
+    return optimum_distance;
+}
+
+
+void
+MonopolyBoard::movePlayer(int position)
+{
+    m_players[m_current_player].setPosition(position);
+
+    m_board_squares[position]->informSquare();
+
+    if(m_board_squares[position]->isProperty()) //property, station, utilities, tax
+    {
+        int owner_id = m_board_squares[position]->getProperty()->getOwner().getId();
 
         if(m_current_player == owner_id)
         {
-           visitOwnProperty(new_position);
+           visitOwnProperty(position);
         }
         else if(owner_id == 0)
         {
-            visitBankProperty(new_position);
+            visitBankProperty(position);
         }
         else
         {
-            visitOtherPlayerProperty(new_position);
+            visitOtherPlayerProperty(position);
         }
     }
-    else if(m_board_squares[new_position]->isNonProperty())//chance, community_chest
+    else if(m_board_squares[position]->isNonProperty())//chance, community_chest
     {
-        int card = m_board_squares[new_position]->getNonProperty()->applyCard(m_players[m_current_player], m_players);
-        if(m_board_squares[new_position]->getType() == chance)
+        int card = m_board_squares[position]->getNonProperty()->applyCard(m_players[m_current_player], m_players);
+        if(m_board_squares[position]->getType() == chance)
         {
             if(card == chance_2)
             {
-                if(m_players[m_current_player].getPosition() > 24)
-                {
-                    movePlayer(NUMBER_OF_SQUARES + 24 - m_players[m_current_player].getPosition());
-                }
-                else
-                {
-                    movePlayer(24 - m_players[m_current_player].getPosition());
-                }
+                movePlayer(24);
             }
             else if(chance_3)
             {
-                if(m_players[m_current_player].getPosition() > 11)
+                movePlayer(11);
+            }
+            else if(chance_4)
+            {
+                int position_to_move = findNearestUtility(position);
+                if(m_board_squares[position_to_move]->getProperty()->getOwner().getId() == PLAYER_BANK)
                 {
-                    movePlayer(NUMBER_OF_SQUARES + 11 - m_players[m_current_player].getPosition());
+                    movePlayer(position_to_move);
                 }
                 else
                 {
-                    movePlayer(11 - m_players[m_current_player].getPosition());
+                    m_players[m_current_player].setPosition(position_to_move);
+                    MyDice dice(12);
+                    int rent = 10 * dice.dice();
+                    m_players[m_current_player].spend(rent);
+                    m_board_squares[position_to_move]->getProperty()->getOwner().earn(rent);
                 }
+            }
+            else if(chance_5)
+            {
+                int position_to_move = findNearestStation(position);
+                if(m_board_squares[position_to_move]->getProperty()->getOwner().getId() == PLAYER_BANK)
+                {
+                    movePlayer(position_to_move);
+                }
+                else
+                {
+                    m_players[m_current_player].setPosition(position_to_move);
+                    int rent = 2 * m_board_squares[position_to_move]->getProperty()->rent();
+                    m_players[m_current_player].spend(rent);
+                    m_board_squares[position_to_move]->getProperty()->getOwner().earn(rent);
+                }
+            }
+            else if(chance_8)
+            {
+                movePlayer(position - 3);
             }
         }
     }
@@ -474,7 +526,7 @@ MonopolyBoard::play()
     {
         playerIstatistics(m_current_player);
 
-        movePlayer(dice.dice());
+        movePlayer(m_players[m_current_player].getPosition() + dice.dice());
         
         enter = ' ';
         cin >> enter;

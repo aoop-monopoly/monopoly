@@ -138,7 +138,7 @@ Chance::Chance()
     m_cards.push_back("Advance to Trafalgar Square. - If you pass Go, collect $200");
     m_cards.push_back("Advance to Pall Mall – If you pass Go, collect $200");
     m_cards.push_back("Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times the amount thrown.");
-    m_cards.push_back("Advance token to the nearest Railroad and pay owner twice the rental to which he/she {he} is otherwise entitled. If Railroad is unowned, you may buy it from the Bank.");
+    m_cards.push_back("Advance token to the nearest Station and pay owner twice the rental to which he/she {he} is otherwise entitled. If Railroad is unowned, you may buy it from the Bank.");
     m_cards.push_back("Bank pays you dividend of $50");
     m_cards.push_back("Get out of Jail Free – This card may be kept until needed, or traded/sold");
     m_cards.push_back("Go Back 3 Spaces");
@@ -183,7 +183,18 @@ Chance::applyCard(Player current_player, vector<Player> players)
             }  
             break;
         case chance_4 :
-            
+        case chance_5 :
+        case chance_8 :
+            break;
+        case chance_6 :
+            current_player.earn(50);
+            players[PLAYER_BANK].spend(50);
+            break;
+        case chance_7 :
+            current_player.setJailFreeCard(true);
+            break;
+        case chance_9 :
+            break;
     }
 
     return card;
