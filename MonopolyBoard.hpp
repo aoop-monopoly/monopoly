@@ -29,6 +29,7 @@ public:
     void visitNonProperty(int position);
     void movePlayer(int amount);
     bool isPlayerAllowedToGo();
+    void nextPlayer();
     void play(void);
 
 private:

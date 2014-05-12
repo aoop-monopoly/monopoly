@@ -583,6 +583,19 @@ MonopolyBoard::isPlayerAllowedToGo()
 }
 
 void
+MonopolyBoard::nextPlayer()
+{
+    if(m_current_player == m_num_of_players)
+    {
+        m_current_player = 1;
+    }
+    else
+    {
+        m_current_player++;
+    }
+}
+
+void
 MonopolyBoard::play()
 {
     MyDice dice(12);
@@ -598,14 +611,16 @@ MonopolyBoard::play()
         {
             movePlayer(m_players[m_current_player].getPosition() + dice.dice());
         }
+
+        nextPlayer();
         
-        enter = ' ';
+ /*       enter = ' ';
         cin >> enter;
 
         if(enter == 'c')
             cout << "Continue........\n";
         else
-            cout << "Not Know..............\n";
+            cout << "Not Know..............\n";*/
     }
 }
 
