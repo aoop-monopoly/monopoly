@@ -72,7 +72,8 @@ CommunityChest::applyCard(Player current_player, vector<Player> players)
             current_player.setJailFreeCard(true);
             break;
         case community_chest_6 :
-            current_player.setPosition(30);
+            current_player.setPosition(10);
+            current_player.setJail(true);
             break;
         case community_chest_7 :
             for(unsigned int i = 0; i < players.size(); i++)
@@ -197,7 +198,8 @@ Chance::applyCard(Player current_player, vector<Player> players)
             current_player.setJailFreeCard(true);
             break;
         case chance_9 :
-            current_player.setPosition(30);
+            current_player.setPosition(10);
+            current_player.setJail(true);
             break;
         case chance_10 :
             repair_cost = (25 * current_player.getHouses()) + (100 * current_player.getHotels());

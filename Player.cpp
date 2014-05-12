@@ -80,6 +80,18 @@ Player::getPlayerType()
 }
 
 void
+Player::setJail(bool in_jail)
+{
+    m_in_jail = in_jail;
+}
+
+bool
+Player::getJail()
+{
+    return m_in_jail;
+}
+
+void
 Player::setJailFreeCard(bool free)
 {
     m_jail_free_card = free;

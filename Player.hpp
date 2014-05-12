@@ -26,6 +26,8 @@ public:
     void spend(int money);
     void earn(int money);
     PlayerType getPlayerType();
+    void setJail(bool in_jail);
+    bool getJail();
     void setJailFreeCard(bool free);
     bool getJailFreeCard();
     void buildHouse();
