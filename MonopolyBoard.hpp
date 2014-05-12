@@ -26,6 +26,7 @@ public:
     void visitOtherPlayerProperty(int position);
     int findNearestUtility(int position);
     int findNearestStation(int position);
+    void visitNonProperty(int position);
     void movePlayer(int amount);
     void play(void);
 
