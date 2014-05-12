@@ -169,15 +169,18 @@ MonopolyBoard::playerIstatistics(int player_id)
 
     for(int i = 0; i < NUMBER_OF_SQUARES; i++)
     {
-        if(m_board_squares[i]->getProperty()->getOwner().getId() == player_id)
+        if(m_board_squares[i]->isProperty())
         {
-            if(!has_asset)
+            if(m_board_squares[i]->getProperty()->getOwner().getId() == player_id)
             {
-                has_asset = true;
-                cout << "ASSETS :\n";
-                
+                if(!has_asset)
+                {
+                    has_asset = true;
+                    cout << "ASSETS :\n";
+                    
+                }
+                cout << m_board_squares[i]->getSquareName() << "\n";
             }
-            cout << m_board_squares[i]->getSquareName() << "\n";
         }
     }
 
