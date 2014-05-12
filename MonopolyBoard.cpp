@@ -551,6 +551,37 @@ MonopolyBoard::movePlayer(int position)
     }
 }
 
+bool
+MonopolyBoard::isPlayerAllowedToGo()
+{
+    if(m_players[m_current_player].getJail() == true)
+    {
+        m_players[m_current_player].setJail(false);
+
+        if(m_players[m_current_player].getJailFreeCard())
+        {
+            cout << "You are in Jail and you have a Jail Free Card. Would you like to use it?\n";
+
+            char reply = ' ';
+        
+            cin >> reply;
+
+            if(reply == 'y')
+            {
+                m_players[m_current_player].setJailFreeCard(false);
+                return true;
+            }
+        }
+        else
+        {
+            cout << "Unfortunatelly you are in Jail and you have to wait.\n"; 
+            return false;
+        }
+    }
+
+    return true;
+}
+
 void
 MonopolyBoard::play()
 {
@@ -563,7 +594,10 @@ MonopolyBoard::play()
     {
         playerIstatistics(m_current_player);
 
-        movePlayer(m_players[m_current_player].getPosition() + dice.dice());
+        if(isPlayerAllowedToGo())
+        {
+            movePlayer(m_players[m_current_player].getPosition() + dice.dice());
+        }
         
         enter = ' ';
         cin >> enter;

@@ -28,6 +28,7 @@ public:
     int findNearestStation(int position);
     void visitNonProperty(int position);
     void movePlayer(int amount);
+    bool isPlayerAllowedToGo();
     void play(void);
 
 private:
