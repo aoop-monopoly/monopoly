@@ -524,11 +524,30 @@ MonopolyBoard::movePlayer(int position)
     }
     else if(m_board_squares[position]->isNonProperty())//chance, community_chest
     {
-        
+        visitNonProperty(position);
     }
     else//free_parking, jail, go, go_to_jail
     {
-        
+        if(m_board_squares[position]->getType() == jail)
+        {
+            cout << "You are at Jail for visiting purpose.\n";
+        }
+        else if(m_board_squares[position]->getType() == free_parking)
+        {
+            cout << "You are at Free Parking.\n";
+        }
+        else if(m_board_squares[position]->getType() == go)
+        {
+            cout << "You are at Start. Getting 200$..\n";
+            m_players[m_current_player].earn(200);
+            m_players[PLAYER_BANK].spend(200);         
+        }
+        else if(m_board_squares[position]->getType() == go_to_jail)
+        {
+            cout << "You have to go Jail.\n";
+            m_players[m_current_player].setPosition(10);
+            m_players[m_current_player].setJail(true);
+        }
     }
 }
 
