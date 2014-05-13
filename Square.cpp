@@ -24,7 +24,6 @@ Square::Square(SquareType square_type, PropertyColor color, string square_name, 
     m_non_property(NULL),
     m_square_name(square_name)
 {
-    cout << "Square Rent : " << m_property->rent()<< "\n";
 }
 
 Square::Square(SquareType square_type, string square_name, AnyNonProperty *non_property)

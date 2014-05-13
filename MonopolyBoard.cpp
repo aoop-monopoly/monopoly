@@ -655,9 +655,6 @@ int main(void)
 
     board.play();
 
-	int a = 0;
-	cout << "Wait........";
-	cin >> a;
     return 0;
 }
 
