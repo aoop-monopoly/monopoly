@@ -440,17 +440,19 @@ void
 MonopolyBoard::visitNonProperty(int position)
 {
     int card = m_board_squares[position]->getNonProperty()->applyCard(m_players[m_current_player], m_players);
+
+    cout <<  m_board_squares[position]->getNonProperty()->getCard(card) << "\n";    
     if(m_board_squares[position]->getType() == chance)
     {
         if(card == chance_2)
         {
             movePlayer(24);
         }
-        else if(chance_3)
+        else if(card == chance_3)
         {
             movePlayer(11);
         }
-        else if(chance_4)
+        else if(card == chance_4)
         {
             int position_to_move = findNearestUtility(position);
             if(m_board_squares[position_to_move]->getProperty()->getOwner()->getId() == PLAYER_BANK)
@@ -466,7 +468,7 @@ MonopolyBoard::visitNonProperty(int position)
                 m_board_squares[position_to_move]->getProperty()->getOwner()->earn(rent);
             }
         }
-        else if(chance_5)
+        else if(card == chance_5)
         {
             int position_to_move = findNearestStation(position);
             if(m_board_squares[position_to_move]->getProperty()->getOwner()->getId() == PLAYER_BANK)
@@ -481,11 +483,11 @@ MonopolyBoard::visitNonProperty(int position)
                 m_board_squares[position_to_move]->getProperty()->getOwner()->earn(rent);
             }
         }
-        else if(chance_8)
+        else if(card == chance_8)
         {
             movePlayer(position - 3);
         }
-        else if(chance_12)
+        else if(card == chance_12)
         {
             if(m_players[m_current_player].getPosition() > 5)
             {
@@ -494,7 +496,7 @@ MonopolyBoard::visitNonProperty(int position)
             }
             movePlayer(5);
         }
-        else if(chance_13)
+        else if(card == chance_13)
         {
             movePlayer(39);
         }
