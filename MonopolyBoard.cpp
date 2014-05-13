@@ -19,7 +19,7 @@ MonopolyBoard::MonopolyBoard(void)
     m_board_squares[1] = new Square(property, brown ,"Old Kent Road", property_old_kent_road);
 
     CommunityChest *non_property_community_chest_1 = new CommunityChest();
-    m_board_squares[2] = new Square(community_chest, non_property_community_chest_1);
+    m_board_squares[2] = new Square(community_chest, "Community Chest", non_property_community_chest_1);
 
     WhitechapelRoad *property_whitechapel_road = new WhitechapelRoad();
     m_board_squares[3] = new Square(property, brown, "Whitechapel Road", property_whitechapel_road);
@@ -34,7 +34,7 @@ MonopolyBoard::MonopolyBoard(void)
     m_board_squares[6] = new Square(property, blue, "The Angel Islington", property_the_angel_islington);
 
     Chance *non_property_chance_1 = new Chance();
-    m_board_squares[7] = new Square(chance, non_property_chance_1);
+    m_board_squares[7] = new Square(chance, "Chance", non_property_chance_1);
 
     EustonRoad *property_euston_road = new EustonRoad();
     m_board_squares[8] = new Square(property, blue, "Euston Road", property_euston_road);
@@ -63,7 +63,7 @@ MonopolyBoard::MonopolyBoard(void)
     m_board_squares[16] = new Square(property, orange, "Bow Street", property_bow_street);
 
     CommunityChest *non_property_community_chest_2 = new CommunityChest();
-    m_board_squares[17] = new Square(community_chest, non_property_community_chest_2);
+    m_board_squares[17] = new Square(community_chest, "Community Chest", non_property_community_chest_2);
 
     MarlboroughStreet *property_marlborough_street = new MarlboroughStreet();
     m_board_squares[18] = new Square(property, orange, "Marlborough Street", property_marlborough_street);
@@ -77,7 +77,7 @@ MonopolyBoard::MonopolyBoard(void)
     m_board_squares[21] = new Square(property, red, "Strand", property_strand);
 
     Chance *non_property_chance_2 = new Chance();
-    m_board_squares[22] = new Square(chance, non_property_chance_2);
+    m_board_squares[22] = new Square(chance, "Chance", non_property_chance_2);
 
     FleetStreet *property_fleet_street = new FleetStreet();
     m_board_squares[23] = new Square(property, red, "Fleet Street", property_fleet_street);
@@ -109,7 +109,7 @@ MonopolyBoard::MonopolyBoard(void)
     m_board_squares[32] = new Square(property, green, "Oxford Street", property_oxford_street);
 
     CommunityChest *non_property_community_chest_3 = new CommunityChest();
-    m_board_squares[33] = new Square(community_chest, non_property_community_chest_3);
+    m_board_squares[33] = new Square(community_chest, "Community Chest", non_property_community_chest_3);
 
     BondStreet *property_bond_street = new BondStreet();
     m_board_squares[34] = new Square(property, green, "Bond Street", property_bond_street);
@@ -118,7 +118,7 @@ MonopolyBoard::MonopolyBoard(void)
     m_board_squares[35] = new Square(station,  color_stations, "Liverpool Street Station", station_liverpool_street);
 
     Chance *non_property_chance_3 = new Chance();
-    m_board_squares[36] = new Square(chance, non_property_chance_3);
+    m_board_squares[36] = new Square(chance, "Chance", non_property_chance_3);
 
     ParkLane *property_park_lane = new ParkLane();
     m_board_squares[37] = new Square(property, dark_blue, "Park Lane", property_park_lane);

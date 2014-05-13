@@ -43,7 +43,7 @@ public:
     Square(void);
 	Square(SquareType square_type);
     Square(SquareType square_type, PropertyColor color, string square_name, AnyProperty *property);
-    Square(SquareType square_type, AnyNonProperty *non_property);
+    Square(SquareType square_type, string square_name, AnyNonProperty *non_property);
 	~Square(void);
 
     SquareType getType();

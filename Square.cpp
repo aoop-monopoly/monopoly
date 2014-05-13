@@ -27,12 +27,12 @@ Square::Square(SquareType square_type, PropertyColor color, string square_name, 
     cout << "Square Rent : " << m_property->rent()<< "\n";
 }
 
-Square::Square(SquareType square_type, AnyNonProperty *non_property)
+Square::Square(SquareType square_type, string square_name, AnyNonProperty *non_property)
     :m_square_type(square_type),
     m_color(color_none),
     m_non_property(non_property),
     m_property(NULL),
-    m_square_name("")
+    m_square_name(square_name)
 {
 }
 
