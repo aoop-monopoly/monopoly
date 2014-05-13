@@ -504,6 +504,13 @@ MonopolyBoard::visitNonProperty(int position)
 void
 MonopolyBoard::movePlayer(int position)
 {
+    if(position > NUMBER_OF_SQUARES)
+    {
+        position = position - NUMBER_OF_SQUARES;
+        m_players[m_current_player].earn(200);
+        m_players[PLAYER_BANK].spend(200);
+    }
+    
     m_players[m_current_player].setPosition(position);
 
     m_board_squares[position]->informSquare();
