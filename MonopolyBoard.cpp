@@ -171,7 +171,7 @@ MonopolyBoard::playerIstatistics(int player_id)
     {
         if(m_board_squares[i]->isProperty())
         {
-            if(m_board_squares[i]->getProperty()->getOwner().getId() == player_id)
+            if(m_board_squares[i]->getProperty()->getOwner()->getId() == player_id)
             {
                 if(!has_asset)
                 {
@@ -400,7 +400,7 @@ MonopolyBoard::visitBankProperty(int position)
 void
 MonopolyBoard::visitOtherPlayerProperty(int position)
 {
-    cout << "You are paying " << m_board_squares[position]->getProperty()->rent() << " $ to player " << m_board_squares[position]->getProperty()->getOwner().getName();
+    cout << "You are paying " << m_board_squares[position]->getProperty()->rent() << " $ to player " << m_board_squares[position]->getProperty()->getOwner()->getName();
 
     m_board_squares[position]->getProperty()->payRent(m_players[m_current_player]);
 }
@@ -453,7 +453,7 @@ MonopolyBoard::visitNonProperty(int position)
         else if(chance_4)
         {
             int position_to_move = findNearestUtility(position);
-            if(m_board_squares[position_to_move]->getProperty()->getOwner().getId() == PLAYER_BANK)
+            if(m_board_squares[position_to_move]->getProperty()->getOwner()->getId() == PLAYER_BANK)
             {
                 movePlayer(position_to_move);
             }
@@ -463,13 +463,13 @@ MonopolyBoard::visitNonProperty(int position)
                 MyDice dice(12);
                 int rent = 10 * dice.dice();
                 m_players[m_current_player].spend(rent);
-                m_board_squares[position_to_move]->getProperty()->getOwner().earn(rent);
+                m_board_squares[position_to_move]->getProperty()->getOwner()->earn(rent);
             }
         }
         else if(chance_5)
         {
             int position_to_move = findNearestStation(position);
-            if(m_board_squares[position_to_move]->getProperty()->getOwner().getId() == PLAYER_BANK)
+            if(m_board_squares[position_to_move]->getProperty()->getOwner()->getId() == PLAYER_BANK)
             {
                 movePlayer(position_to_move);
             }
@@ -478,7 +478,7 @@ MonopolyBoard::visitNonProperty(int position)
                 m_players[m_current_player].setPosition(position_to_move);
                 int rent = 2 * m_board_squares[position_to_move]->getProperty()->rent();
                 m_players[m_current_player].spend(rent);
-                m_board_squares[position_to_move]->getProperty()->getOwner().earn(rent);
+                m_board_squares[position_to_move]->getProperty()->getOwner()->earn(rent);
             }
         }
         else if(chance_8)
@@ -517,7 +517,7 @@ MonopolyBoard::movePlayer(int position)
 
     if(m_board_squares[position]->isProperty()) //property, station, utilities, tax
     {
-        int owner_id = m_board_squares[position]->getProperty()->getOwner().getId();
+        int owner_id = m_board_squares[position]->getProperty()->getOwner()->getId();
 
         if(m_current_player == owner_id)
         {

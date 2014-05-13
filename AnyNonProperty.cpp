@@ -45,7 +45,7 @@ CommunityChest::~CommunityChest(void)
 }
 
 int
-CommunityChest::applyCard(Player current_player, vector<Player> players)
+CommunityChest::applyCard(Player &current_player, vector<Player> &players)
 {
     int card = rand() + NUMBER_OF_COMMUNITY_CHEST_CARDS;
     int repair_cost = 0;
@@ -158,7 +158,7 @@ Chance::~Chance(void)
 }
 
 int
-Chance::applyCard(Player current_player, vector<Player> players)
+Chance::applyCard(Player &current_player, vector<Player> &players)
 {
     int card = rand() + NUMBER_OF_CHANCE_CARDS;
     int repair_cost = 0;

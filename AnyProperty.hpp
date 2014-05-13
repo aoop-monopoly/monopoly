@@ -14,8 +14,8 @@ public:
     ~AnyProperty();
     
     int getPosition();
-    void payRent(Player renter);
-    void trade(Player buyer, Player seller);
+    void payRent(Player &renter);
+    void trade(Player &buyer, Player &seller);
     void mortgage();
     void unMortgage();
     int getHouses();
@@ -25,13 +25,13 @@ public:
     int mortgageValue();
     void buildHouse();
     void buildHotel();
-    Player getOwner();
+    Player *getOwner();
     bool ownColorGroup();
     
     virtual int rent() = 0;
 
 protected:
-    Player m_owner;
+    Player *m_owner;
     bool m_mortgaged;
     bool m_owned_all_colors;
     int m_houses;

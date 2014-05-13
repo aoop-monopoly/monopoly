@@ -16,7 +16,7 @@ Player::Player()
 Player::Player(string player_name, int player_id)
     :m_name(player_name),
     m_id(player_id),
-    m_money(1000),
+    m_money(2000),
     m_position(0),
     m_in_jail(false),
     m_jail_free_card(false),

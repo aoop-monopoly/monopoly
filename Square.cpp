@@ -100,9 +100,9 @@ Square::informSquare()
 
     if(m_property)
     {
-        cout << "Owner : " << m_property->getOwner().getName() << "\n";
+        cout << "Owner : " << m_property->getOwner()->getName() << "\n";
         
-        if(m_property->getOwner().getId())
+        if(m_property->getOwner()->getId())
         {
             cout << "Rent : " << m_property->rent() << "\n";
         }

@@ -12,6 +12,7 @@ AnyProperty::AnyProperty()
     m_build_cost(0),
     m_morgage_value(false)
 {
+    m_owner = new Player();
 }
 
 AnyProperty::~AnyProperty(void)
@@ -26,17 +27,17 @@ AnyProperty::getPosition()
 }
 
 void
-AnyProperty:: payRent(Player renter)
+AnyProperty:: payRent(Player &renter)
 {
     int rent_price = rent();
     renter.spend(rent_price);
-    m_owner.earn(rent_price);
+    m_owner->earn(rent_price);
 }
 
 void 
-AnyProperty::trade(Player buyer, Player seller)
+AnyProperty::trade(Player &buyer, Player &seller)
 {
-    m_owner = buyer;
+    m_owner = &buyer;
     buyer.spend(m_price);
     seller.earn(m_price);
 }
@@ -45,14 +46,14 @@ void
 AnyProperty::mortgage()
 {
     m_mortgaged = true;
-    m_owner.earn(m_price/2);
+    m_owner->earn(m_price/2);
 }
 
 void
 AnyProperty::unMortgage()
 {
     m_mortgaged = false;
-    m_owner.spend(m_price/2);
+    m_owner->spend(m_price/2);
 }
 
 int
@@ -89,19 +90,19 @@ void
 AnyProperty::buildHouse()
 {
     m_houses++;
-    m_owner.spend(m_build_cost);
-    m_owner.buildHouse();
+    m_owner->spend(m_build_cost);
+    m_owner->buildHouse();
 }
 
 void
 AnyProperty::buildHotel()
 {
     m_hotel = 1;
-    m_owner.spend(m_build_cost * 5);
-    m_owner.buildHotel();
+    m_owner->spend(m_build_cost * 5);
+    m_owner->buildHotel();
 }
 
-Player
+Player*
 AnyProperty::getOwner()
 {
     return m_owner;

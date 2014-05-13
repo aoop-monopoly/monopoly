@@ -62,7 +62,7 @@ public:
 
     string getCard(int card);
 
-    virtual int applyCard(Player current_player, vector<Player> players) = 0;
+    virtual int applyCard(Player &current_player, vector<Player> &players) = 0;
 
 protected:
     vector<string> m_cards;
@@ -75,7 +75,7 @@ public:
     CommunityChest();
     ~CommunityChest();
 
-    int applyCard(Player current_player, vector<Player> players);
+    int applyCard(Player &current_player, vector<Player> &players);
 };
 
 //Chance
@@ -85,7 +85,7 @@ public:
     Chance();
     ~Chance();
 
-    int applyCard(Player current_player, vector<Player> players);
+    int applyCard(Player &current_player, vector<Player> &players);
 };
 
 
