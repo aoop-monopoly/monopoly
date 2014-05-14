@@ -164,7 +164,7 @@ void
 MonopolyBoard::playerIstatistics(int player_id)
 {
     bool has_asset = false;
-    cout << m_players[player_id].getName() << " turn\n";
+    cout << "-- " <<  m_players[player_id].getName() << " turn\n";
     cout << m_players[player_id].getMoney() << "$ and Position : " << m_players[player_id].getPosition() << "\n";
 
     for(int i = 0; i < NUMBER_OF_SQUARES; i++)
@@ -400,7 +400,7 @@ MonopolyBoard::visitBankProperty(int position)
 void
 MonopolyBoard::visitOtherPlayerProperty(int position)
 {
-    cout << "You are paying " << m_board_squares[position]->getProperty()->rent() << " $ to player " << m_board_squares[position]->getProperty()->getOwner()->getName();
+    cout << "You are paying " << m_board_squares[position]->getProperty()->rent() << " $ to player " << m_board_squares[position]->getProperty()->getOwner()->getName() << "\n";
 
     m_board_squares[position]->getProperty()->payRent(m_players[m_current_player]);
 }
@@ -442,6 +442,7 @@ MonopolyBoard::visitNonProperty(int position)
     int card = m_board_squares[position]->getNonProperty()->applyCard(m_players[m_current_player], m_players);
 
     cout <<  m_board_squares[position]->getNonProperty()->getCard(card) << "\n";    
+    
     if(m_board_squares[position]->getType() == chance)
     {
         if(card == chance_2)
@@ -506,6 +507,8 @@ MonopolyBoard::visitNonProperty(int position)
 void
 MonopolyBoard::movePlayer(int position)
 {
+    cout << m_players[m_current_player].getName() << " is moving to position " << (position % NUMBER_OF_SQUARES) << "\n";
+        
     if(position > NUMBER_OF_SQUARES)
     {
         position = position - NUMBER_OF_SQUARES;
@@ -625,14 +628,6 @@ MonopolyBoard::play()
         }
 
         nextPlayer();
-        
- /*       enter = ' ';
-        cin >> enter;
-
-        if(enter == 'c')
-            cout << "Continue........\n";
-        else
-            cout << "Not Know..............\n";*/
     }
 }
 
