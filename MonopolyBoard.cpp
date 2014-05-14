@@ -13,7 +13,7 @@ MonopolyBoard::MonopolyBoard(void)
     : m_num_of_players(0),
     m_current_player(0)
 {
-    m_board_squares[0] = new Square(go);
+    m_board_squares[0] = new Square(go, "GO");
     
     OldKentRoad *property_old_kent_road = new OldKentRoad();
     m_board_squares[1] = new Square(property, brown ,"Old Kent Road", property_old_kent_road);
@@ -42,7 +42,7 @@ MonopolyBoard::MonopolyBoard(void)
     PentonvilleRoad *property_pentonville_road = new PentonvilleRoad();
     m_board_squares[9] = new Square(property, blue, "Pentonville Road", property_pentonville_road);
     
-    m_board_squares[10] = new Square(jail);
+    m_board_squares[10] = new Square(jail, "Jail");
 
     PallMall *property_pall_mall = new PallMall();
     m_board_squares[11] = new Square(property, pink, "Pall Mall", property_pall_mall);
@@ -71,7 +71,7 @@ MonopolyBoard::MonopolyBoard(void)
     VineStreet *property_vine_street = new VineStreet();
     m_board_squares[19] = new Square(property, orange, "Vine Street", property_vine_street);
     
-    m_board_squares[20] = new Square(free_parking);
+    m_board_squares[20] = new Square(free_parking, "Free Parking");
 
     Strand *property_strand = new Strand();
     m_board_squares[21] = new Square(property, red, "Strand", property_strand);
@@ -100,7 +100,7 @@ MonopolyBoard::MonopolyBoard(void)
     Piccadilly *property_piccadily = new Piccadilly();
     m_board_squares[29] = new Square(property, yellow, "Piccadilly", property_piccadily);
     
-    m_board_squares[30] = new Square(go_to_jail);
+    m_board_squares[30] = new Square(go_to_jail, "Go To Jail");
 
     RegentStreet *property_regent_street = new RegentStreet();
     m_board_squares[31] = new Square(property, green, "Regent Street", property_regent_street);
@@ -123,7 +123,7 @@ MonopolyBoard::MonopolyBoard(void)
     ParkLane *property_park_lane = new ParkLane();
     m_board_squares[37] = new Square(property, dark_blue, "Park Lane", property_park_lane);
     
-    m_board_squares[38] = new Square(tax);
+    m_board_squares[38] = new Square(tax, "TAX");
 
     Mayfair *property_mayfair = new Mayfair();
     m_board_squares[39] = new Square(property, dark_blue, " Mayfair", property_mayfair);

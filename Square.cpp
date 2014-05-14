@@ -8,12 +8,12 @@ Square::Square()
 {
 }
 
-Square::Square(SquareType square_type)
+Square::Square(SquareType square_type, string square_name)
     :m_square_type(square_type),
     m_color(color_none),
     m_property(NULL),
     m_non_property(NULL),
-    m_square_name("")
+    m_square_name(square_name)
 {
 }
 
