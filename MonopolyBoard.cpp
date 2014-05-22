@@ -15,117 +15,117 @@ MonopolyBoard::MonopolyBoard(void)
 {
     m_board_squares[0] = new Square(go, "GO");
     
-    OldKentRoad *property_old_kent_road = new OldKentRoad();
+    AnyProperty *property_old_kent_road = new AnyProperty(1, 60, 30, 50, 2, 10, 30, 90, 160, 250);
     m_board_squares[1] = new Square(property, brown ,"Old Kent Road", property_old_kent_road);
 
     CommunityChest *non_property_community_chest_1 = new CommunityChest();
     m_board_squares[2] = new Square(community_chest, "Community Chest", non_property_community_chest_1);
 
-    WhitechapelRoad *property_whitechapel_road = new WhitechapelRoad();
+    AnyProperty *property_whitechapel_road = new AnyProperty(3, 60, 30, 50, 4, 20, 60, 180, 360, 450);
     m_board_squares[3] = new Square(property, brown, "Whitechapel Road", property_whitechapel_road);
 
-    IncomeTax *income_tax = new IncomeTax();
+    AnyProperty *income_tax = new AnyProperty(28, 0, 0, 200);
     m_board_squares[4] = new Square(tax, color_tax_office, "Tax Office", income_tax);
 
-    KingsCrossStation *station_kings_cross = new KingsCrossStation();
+    AnyProperty *station_kings_cross = new AnyProperty(5, 200, 100, 25);
     m_board_squares[5] = new Square(station,  color_stations, "King's Cross Station", station_kings_cross);
 
-    TheAngelIslington *property_the_angel_islington = new TheAngelIslington();
+    AnyProperty *property_the_angel_islington = new AnyProperty(6, 100, 50, 50, 6, 30, 90, 270, 400, 550);
     m_board_squares[6] = new Square(property, blue, "The Angel Islington", property_the_angel_islington);
 
     Chance *non_property_chance_1 = new Chance();
     m_board_squares[7] = new Square(chance, "Chance", non_property_chance_1);
 
-    EustonRoad *property_euston_road = new EustonRoad();
+    AnyProperty *property_euston_road = new AnyProperty(8, 100, 50, 50, 6, 30, 90, 270, 400, 550);
     m_board_squares[8] = new Square(property, blue, "Euston Road", property_euston_road);
 
-    PentonvilleRoad *property_pentonville_road = new PentonvilleRoad();
+    AnyProperty *property_pentonville_road = new AnyProperty(9, 120, 50, 60, 8, 40, 100, 300, 450, 600);
     m_board_squares[9] = new Square(property, blue, "Pentonville Road", property_pentonville_road);
     
     m_board_squares[10] = new Square(jail, "Jail");
 
-    PallMall *property_pall_mall = new PallMall();
+    AnyProperty *property_pall_mall = new AnyProperty(11, 140, 100, 70, 10, 50, 150, 450, 625, 750);
     m_board_squares[11] = new Square(property, pink, "Pall Mall", property_pall_mall);
 
-    ElectricCompany *utility_electric_company = new ElectricCompany();
+    AnyProperty *utility_electric_company = new AnyProperty(12, 150, 75, 1);
     m_board_squares[12] = new Square(utilities, color_utilities, "Electric Company", utility_electric_company);
 
-    Whitehall *property_whitehall = new Whitehall();
+    AnyProperty *property_whitehall = new AnyProperty(13, 140, 100, 70, 10, 50, 150, 450, 625, 750);
     m_board_squares[13] = new Square(property, pink, "Whitehall", property_whitehall);
 
-    NorthumberlandAvenue *property_northumberland_avenue = new NorthumberlandAvenue();
+    AnyProperty *property_northumberland_avenue = new AnyProperty(14, 160, 100, 80, 12, 60, 180, 500, 700, 900);
     m_board_squares[14] = new Square(property, pink, "Northumberland Avenue", property_northumberland_avenue);
 
-    MaryleboneStation *station_marylebone = new MaryleboneStation();
+    AnyProperty *station_marylebone = new AnyProperty(15, 200, 100, 25);
     m_board_squares[15] = new Square(station,  color_stations, "Marylebone Station", station_marylebone);
 
-    BowStreet *property_bow_street = new BowStreet();
+    AnyProperty *property_bow_street = new AnyProperty(16, 180, 100, 90, 14, 70, 200, 550, 750, 950);
     m_board_squares[16] = new Square(property, orange, "Bow Street", property_bow_street);
 
     CommunityChest *non_property_community_chest_2 = new CommunityChest();
     m_board_squares[17] = new Square(community_chest, "Community Chest", non_property_community_chest_2);
 
-    MarlboroughStreet *property_marlborough_street = new MarlboroughStreet();
+    AnyProperty *property_marlborough_street = new AnyProperty(18, 180, 100, 90, 14, 70, 200, 550, 750, 950);
     m_board_squares[18] = new Square(property, orange, "Marlborough Street", property_marlborough_street);
 
-    VineStreet *property_vine_street = new VineStreet();
+    AnyProperty *property_vine_street = new AnyProperty(19, 200, 100, 100, 16, 80, 220, 600, 800, 1000);
     m_board_squares[19] = new Square(property, orange, "Vine Street", property_vine_street);
     
     m_board_squares[20] = new Square(free_parking, "Free Parking");
 
-    Strand *property_strand = new Strand();
+    AnyProperty *property_strand = new AnyProperty(21, 220, 150, 100, 18, 90, 250, 700, 875, 1050);
     m_board_squares[21] = new Square(property, red, "Strand", property_strand);
 
     Chance *non_property_chance_2 = new Chance();
     m_board_squares[22] = new Square(chance, "Chance", non_property_chance_2);
 
-    FleetStreet *property_fleet_street = new FleetStreet();
+    AnyProperty *property_fleet_street = new AnyProperty(23, 220, 150, 110, 18, 90, 250, 700, 875, 1050);
     m_board_squares[23] = new Square(property, red, "Fleet Street", property_fleet_street);
 
-    TrafalgarSquare *property_trafalgar_square = new TrafalgarSquare();
+    AnyProperty *property_trafalgar_square = new AnyProperty(24, 240, 150, 120, 20, 100, 300, 750, 925, 1100);
     m_board_squares[24] = new Square(property, red, "Trafalgar Square", property_trafalgar_square);
 
-    FenchurchStStation *station_fenchurch_st = new FenchurchStStation();
+    AnyProperty *station_fenchurch_st = new AnyProperty(25, 200, 100, 25);
     m_board_squares[25] = new Square(station,  color_stations, "Fenchurch St Station", station_fenchurch_st);
 
-    LeicesterSquare *property_leicester_square = new LeicesterSquare();
+    AnyProperty *property_leicester_square = new AnyProperty(26, 260, 150, 150, 22, 110, 330, 800, 975, 1150);
     m_board_squares[26] = new Square(property, yellow, "Leicester Square", property_leicester_square);
 
-    CoventryStreet *property_coventry_street = new CoventryStreet();
+    AnyProperty *property_coventry_street = new AnyProperty(27, 260, 150, 150, 22, 110, 330, 800, 975, 1150);
     m_board_squares[27] = new Square(property, yellow, "Coventry Street", property_coventry_street);
 
-    WaterWorks *utility_water_works = new WaterWorks();
+    AnyProperty *utility_water_works = new AnyProperty(28, 150, 75, 1);
     m_board_squares[28] = new Square(utilities, color_utilities, "Water Works", utility_water_works);
 
-    Piccadilly *property_piccadily = new Piccadilly();
+    AnyProperty *property_piccadily = new AnyProperty(29, 280, 140, 150, 22, 120, 360, 850, 1025, 1200);
     m_board_squares[29] = new Square(property, yellow, "Piccadilly", property_piccadily);
     
     m_board_squares[30] = new Square(go_to_jail, "Go To Jail");
 
-    RegentStreet *property_regent_street = new RegentStreet();
+    AnyProperty *property_regent_street = new AnyProperty(31, 300, 150, 200, 26, 130, 390, 900, 1100, 1275);
     m_board_squares[31] = new Square(property, green, "Regent Street", property_regent_street);
 
-    OxfordStreet *property_oxford_street = new OxfordStreet();
+    AnyProperty *property_oxford_street = new AnyProperty(32, 300, 150, 200, 26, 130, 390, 900, 1100, 1275);
     m_board_squares[32] = new Square(property, green, "Oxford Street", property_oxford_street);
 
     CommunityChest *non_property_community_chest_3 = new CommunityChest();
     m_board_squares[33] = new Square(community_chest, "Community Chest", non_property_community_chest_3);
 
-    BondStreet *property_bond_street = new BondStreet();
+    AnyProperty *property_bond_street = new AnyProperty(34, 320, 160, 200, 28, 150, 450, 1000, 1200, 1400);
     m_board_squares[34] = new Square(property, green, "Bond Street", property_bond_street);
 
-    LiverpoolStreetStation *station_liverpool_street = new LiverpoolStreetStation();
+    AnyProperty *station_liverpool_street = new AnyProperty(35, 200, 100, 25);
     m_board_squares[35] = new Square(station,  color_stations, "Liverpool Street Station", station_liverpool_street);
 
     Chance *non_property_chance_3 = new Chance();
     m_board_squares[36] = new Square(chance, "Chance", non_property_chance_3);
 
-    ParkLane *property_park_lane = new ParkLane();
+    AnyProperty *property_park_lane = new AnyProperty(37, 350, 200, 175, 35, 175, 500, 1100, 1300, 1500);
     m_board_squares[37] = new Square(property, dark_blue, "Park Lane", property_park_lane);
     
     m_board_squares[38] = new Square(tax, "TAX");
 
-    Mayfair *property_mayfair = new Mayfair();
+    AnyProperty *property_mayfair = new AnyProperty(39, 400, 200, 200, 50, 200, 600, 1400, 1700, 2000);
     m_board_squares[39] = new Square(property, dark_blue, " Mayfair", property_mayfair);
 }
 
