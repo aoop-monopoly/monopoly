@@ -29,6 +29,7 @@ public:
     void buildHouse();
     void buildHotel();
     Player *getOwner();
+    void setOwnColorGroup();
     bool ownColorGroup();   
     int rent();
 

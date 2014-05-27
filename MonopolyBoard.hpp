@@ -21,6 +21,8 @@ public:
     int getMaxHotels(PropertyColor color);
     int getPossiblePropertyForHotelBuilding(PropertyColor color);
     void buildHotel(PropertyColor color);
+    bool isOwnAllColors(PropertyColor color, int position);
+    int colorPropertyCount(PropertyColor color);
     void visitOwnProperty(int position);
     void visitBankProperty(int position);
     void visitOtherPlayerProperty(int position);

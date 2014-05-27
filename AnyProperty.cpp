@@ -138,6 +138,12 @@ AnyProperty::getOwner()
     return m_owner;
 }
 
+void
+AnyProperty::setOwnColorGroup()
+{
+    m_owned_all_colors = true;
+}
+
 bool
 AnyProperty::ownColorGroup()
 {

@@ -366,9 +366,54 @@ MonopolyBoard::buildHotel(PropertyColor color)
     }
 }
 
+bool
+MonopolyBoard::isOwnAllColors(PropertyColor color, int position)
+{
+    Player* owner = m_board_squares[position]->getProperty()->getOwner();
+    int count = colorPropertyCount(color);
+    for(int i = NUMBER_OF_SQUARES - 1; i >= 0; i--)
+    {
+        if((m_board_squares[i]->getColor() == color)
+            && (owner == m_board_squares[i]->getProperty()->getOwner()))
+        {
+            count--;
+        }
+    }
+    if(count == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int
+MonopolyBoard::colorPropertyCount(PropertyColor color)
+{
+    int ret_value = 0;
+    switch(color)
+    {
+        case brown:
+        case dark_blue:
+            ret_value = 2;
+            break;
+        default:
+            ret_value = 3;
+            break;
+    }
+    return ret_value;
+}
+
 void
 MonopolyBoard::visitOwnProperty(int position)
 {
+    if(isOwnAllColors(m_board_squares[position]->getColor(), position))
+    {
+        m_board_squares[position]->getProperty()->setOwnColorGroup();
+    }
+
     if(m_board_squares[position]->getProperty()->ownColorGroup())
     {
         buildHouse(m_board_squares[position]->getColor());
